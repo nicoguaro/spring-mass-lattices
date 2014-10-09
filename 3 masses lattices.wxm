@@ -1,0 +1,85 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 12.04.0 ] */
+
+/* [wxMaxima: input   start ] */
+kill(all);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+assume(m1>0,m2>0);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+K: matrix(
+ [-2,1,exp(-%i*k*a)], 
+ [1,-2,1], 
+ [exp(%i*k*a),1,-2]
+);
+M: matrix(
+ [1,0,0], 
+ [0,m1,0], 
+ [0,0,m2]
+);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+Mn:subst([m1=2,m2=3],M);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+poln:determinant(K+x*Mn)=0;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+soln:solve(poln,x)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+soln1:realpart(rhs(subst([a=1],soln[1])))$
+soln2:realpart(rhs(subst([a=1],soln[2])))$
+soln3:realpart(rhs(subst([a=1],soln[3])))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+omegan1:sqrt(soln2)$
+omegan2:sqrt(soln1)$
+omegan3:sqrt(soln3)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([omegan1,omegan2,omegan3], [k,0,%pi])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+pol:trigrat(determinant(K+x*M)=0);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sol:solve(pol,x)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sol1:rhs(subst([a=1],sol[1]))$
+sol2:rhs(subst([a=1],sol[2]))$
+sol3:rhs(subst([a=1],sol[3]))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+Domega1:subst([k=%pi,a=1],sol1)-subst([k=%pi,a=1],sol2)$
+Domega2:subst([k=0,a=1],sol3)-subst([k=0,a=1],sol1)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ratsimp(taylor(subst([a=1,k=ka],sol1), ka, 0, 2));
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
