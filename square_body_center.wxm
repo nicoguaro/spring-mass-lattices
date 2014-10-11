@@ -174,7 +174,7 @@ then 1 else 0), 4, 10);
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-D.K4.transpose(D),trigsimp;
+D.K4.transpose(D),factor;
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
@@ -194,7 +194,6 @@ evals:eigenvalues(Keff)[1]$
 evecs:eigenvectors(Keff)[2]$
 /* [wxMaxima: input   end   ] */
 
-
 /* [wxMaxima: input   start ] */
 wlin1: taylor(subst([b=1,a=1],evals[1]), [kx, ky], 0, 2),ratsimp;
 wlin2: taylor(subst([b=1,a=1],evals[3]), [kx, ky], 0, 2),ratsimp;
@@ -208,6 +207,14 @@ Thus, the dispersion for the lower modes is
 
 /* [wxMaxima: input   start ] */
 w2_low = factor(wlin1 + wlin2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Dispersion for the higher modes is
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+w2_hi = factor(wlin3 + wlin4),ratsimp;
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]

@@ -288,7 +288,7 @@ Or, equivalently
 \begin{figure}[h]
 \centering
 \includegraphics[height=5cm]{img/spring-square-diag.pdf} 
-\caption{Unit cell for a two dimensional square lattice with a unique species and diagonal spring.}
+\caption{Unit cell for a two dimensional square lattice with a unique species and diagonal springs.}
 \end{figure}
 
 The system of equation in frequency domain is
@@ -337,6 +337,83 @@ equivalently (after some manipulations)
 \omega_2^2 &= \frac{8c_2}{m} \sin^2 \left(\frac{1}{2}k_y b\right)  + \frac{4c_d}{m} \left[\sin^2 \frac{1}{2}\left(k_x a + k_y b\right) + \sin^2 \frac{1}{2}\left(k_x a - k_y b\right)\right]  
 \end{align}
 We recover the square lattice (without diagonals) making $c_d=0$.
+
+
+\section{2D square lattice with body mass and diagonal springs}
+\begin{figure}[h]
+\centering
+\includegraphics[height=5cm]{img/spring-square-bcc.pdf} 
+\caption{Unit cell for a two dimensional square lattice with a unique species in the corners and another one in the center that is linked by diagonal springs.}
+\end{figure}
+\begin{equation}
+\mathbb{K}
+\left\lbrace \begin{array}{c}
+u_1 \\ 
+v_1 \\ 
+u_2 \\ 
+v_2 \\ 
+u_3 \\ 
+v_3 \\ 
+u_4 \\ 
+v_4 \\
+u_5 \\
+v_5
+\end{array}  \right\rbrace= -\omega^2 \mathbb{M}
+\left\lbrace \begin{array}{c}
+u_1 \\ 
+v_1 \\ 
+u_2 \\ 
+v_2 \\ 
+u_3 \\ 
+v_3 \\ 
+u_4 \\ 
+v_4
+u_5 \\
+v_5
+\end{array} \right\rbrace
+\end{equation}
+with
+\[\mathbb{K} =\begin{bmatrix}
+-{c}_{s}-{c}_{d} & 0 & {c}_{s} & 0 & 0 & 0 & 0 & 0 & {c}_{d} & 0\cr
+ 0 & -{c}_{s}-{c}_{d} & 0 & 0 & 0 & 0 & 0 & {c}_{s} & 0 & {c}_{d}\cr
+ {c}_{s} & 0 & -{c}_{s}-{c}_{d} & 0 & 0 & 0 & 0 & 0 & {c}_{d} & 0\cr
+ 0 & 0 & 0 & -{c}_{s}-{c}_{d} & 0 & {c}_{s} & 0 & 0 & 0 & {c}_{d}\cr
+ 0 & 0 & 0 & 0 & -{c}_{s}-{c}_{d} & 0 & {c}_{s} & 0 & {c}_{d} & 0\cr
+ 0 & 0 & 0 & {c}_{s} & 0 & -{c}_{s}-{c}_{d} & 0 & 0 & 0 & {c}_{d}\cr
+ 0 & 0 & 0 & 0 & {c}_{s} & 0 & -{c}_{s}-{c}_{d} & 0 & {c}_{d} & 0\cr
+ 0 & {c}_{s} & 0 & 0 & 0 & 0 & 0 & -{c}_{s}-{c}_{d} & 0 & {c}_{d}\cr
+ {c}_{d} & 0 & {c}_{d} & 0 & {c}_{d} & 0 & {c}_{d} & 0 & -4\,{c}_{d} & 0\cr
+ 0 & {c}_{d} & 0 & {c}_{d} & 0 & {c}_{d} & 0 & {c}_{d} & 0 & -4\,{c}_{d}\end{bmatrix},\]
+and
+\[\mathbb{M} = \begin{bmatrix}
+\frac{m_1}{4}\mathbb{I}_6 & 0 \\ 
+0 & m_2\mathbb{I}_2
+\end{bmatrix} \enspace . \]
+
+After applying the Bloch theorem we obtain (showing just the lower diagonal due to the Hermiticity)
+\[\mathbb{K}_R = \begin{bmatrix}
+-4\left[c_d - c_s(\cos(k_y a) - 1)\right]  & \bullet & \bullet & \bullet\\
+ 0 & -4\left[c_d - c_s(\cos(k_y b) - 1)\right]  & \bullet & \bullet\\
+ c_d\left( e^{i\, k_x a}+1\right) \left( e^{i\, k_y b}+1\right)  & 0 & -4c_d & \bullet\\
+ 0 & c_d\left( e^{i\, k_x a}+1\right) \left( e^{i\, k_y b}+1\right)  & 0 & -4c_d
+\end{bmatrix}\]
+and
+\[\mathbb{M}_R =\begin{bmatrix}
+m_1\mathbb{I}_2 & 0 \\ 
+0 & m_2\mathbb{I}_2
+\end{bmatrix} \enspace .\]
+
+The eigenvalues for this problem are lengthy, but a second order expansion around $(k_x,k_y)=(0,0)$ (linear in the case o its square root) is shown
+\begin{align*}
+\omega_1^2 =& \frac{2c_s (k_x a)^2 + c_d\left((k_x a)^2 + (k_y b)^2\right)}{m_1 + m_2}\\
+\omega_2^2 =& \frac{2c_s (k_y b)^2 + c_d\left((k_x a)^2 + (k_y b)^2\right)}{m_1 + m_2}\\
+\omega_3^2 =& \frac{2c_s (k_x a)^2 + 2c_d\left[2m_1^2 + 2m_2^2 + \left(4 - (k_x a)^2 +(k_y b)^2\right)m_1 m_2\right] } {m_1 m_2 (m_2 + m_1)}\\
+\omega_4^2 =& \frac{2c_s (k_y b)^2 + 2c_d\left[2m_1^2 + 2m_2^2 + \left(4 - (k_x a)^2 +(k_y b)^2\right)m_1 m_2\right] } {m_1 m_2 (m_2 + m_1)} \enspace .
+\end{align*}
+Assuming $a=b$, we can group the modes as degenerate ones and consider the most general propagation in the plane (due to the orthogonality)
+\[\omega_{\text{low}}^2 = \frac{2 (c_s + c_d) (k_x^2 + k_y^2)a^2}{m_1 + m_2} \equiv \frac{2 (c_s + c_d) \mathbf{k}^2 a^2}{m_1 + m_2} \enspace ,\]
+the same argument holds for the other two, giving
+\[\omega_{\text{high}}^2 = \frac{2c_s \mathbf{k}^2a^2 + 2c_d\left[4m_1^2 + 4m_2^2 + \left(8 - \mathbf{k}^2 a^2\right)m_1 m_2\right] } {m_1 m_2 (m_2 + m_1)} \enspace .\]
 
 
 \end{document}
