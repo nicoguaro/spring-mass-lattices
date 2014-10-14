@@ -5,6 +5,7 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage[margin=20pt,font=small,labelfont=bf,labelsep=period]{caption}
 \usepackage{subcaption}
+\usepackage[pdftex, pdftitle={Dispersion spring-mass lattices}, pdfauthor={Nicolas Guarin-Zapata}, pdfsubject={Dispersion in lattices}, pdfkeywords={Dispersion, Phononic crystals, Vibrations, Wave propagation}, pdfpagemode=UseOutlines,bookmarks,bookmarksopen,pdfstartview=FitH,colorlinks,linkcolor=blue, urlcolor=black, citecolor=blue]{hyperref}
 
 
 \author{Nicol\'as Guar\'in Zapata}
@@ -21,7 +22,7 @@
 \caption{Simple mass-spring lattice.}
 \end{figure}
 \subsection{Direct formulation}
-The force in the plane $s$ cause by the displacement of the plane $s+p$ is proportional to the difference $u_{s+p}-u_s$ of the displacements. For brevity we will consider only nearest-neighbour interactions, so $p=\pm 1$. The total force on $s$ comes from planes $s=\pm 1$:
+The force in the plane $s$ cause by the displacement of the plane $s+p$ is proportional to the difference $u_{s+p}-u_s$ of the displacements. For brevity we will consider only nearest-neighbor interactions, so $p=\pm 1$. The total force on $s$ comes from planes $s=\pm 1$:
 \begin{equation}
 F_s = c(u_{s+1}-u_s)+ c(u_{s-1}-u_s).
 \end{equation}
@@ -38,7 +39,7 @@ Due to the Bloch-periodicity condition
 \[u_{s\pm 1} = u_s e^{\pm i ka}. \]
 So (\ref{eq:single-spring-lattice}) is now
 \[ -m \omega^2 u_s = c (u_s \exp(ika) + u_s \exp(-ika) - 2u_s) \]
-and cancelling $u_s$ from both sides, we have
+and canceling $u_s$ from both sides, we have
 \[ \omega^2 m = -c[ \exp(ika) + \exp(-ika) - 2 ] \enspace .\]
 Using the identity $2\cos ka = \exp(ika) + \exp(-ika)$, we have the dispersion relation
 \begin{equation}
@@ -278,10 +279,11 @@ Or, equivalently
 \begin{equation}
 \omega_x^2 = \frac{8c}{m}\left( \sin \frac{1}{2}k_x a\right)^2,\qquad \omega_y^2 = \frac{8c}{m}\left( \sin \frac{1}{2}k_y b \right)^2 \enspace .
 \end{equation}
+Figure \ref{fig:square-disp} shows the dispersion relation for this problem.
 \begin{figure}[h]
 \centering
-\includegraphics[height=8cm]{img/square-mass_lattice-contours.png} 
-\caption{Isofrequency contours for the first mode.}
+\includegraphics[height=8cm]{img/square-disp.pdf} 
+\caption{Dispersion relations--shown as isofrequency contours.}\label{fig:square-disp}
 \end{figure}
 
 \section{2D rectangular lattice with diagonal springs}
@@ -337,8 +339,30 @@ equivalently (after some manipulations)
 \omega_1^2 &= \frac{8c_1}{m} \sin^2 \left(\frac{1}{2}k_x a\right)  + \frac{4c_d}{m} \left[\sin^2 \frac{1}{2}\left(k_x a + k_y b\right) + \sin^2 \frac{1}{2}\left(k_x a - k_y b\right)\right] \\
 \omega_2^2 &= \frac{8c_2}{m} \sin^2 \left(\frac{1}{2}k_y b\right)  + \frac{4c_d}{m} \left[\sin^2 \frac{1}{2}\left(k_x a + k_y b\right) + \sin^2 \frac{1}{2}\left(k_x a - k_y b\right)\right]  
 \end{align}
-We recover the square lattice (without diagonals) making $c_d=0$.
-
+We recover the square lattice (without diagonals) making $c_d=0$. The dispersion curves for this problem varying the ratio $c_d/c$ are shown in Figure \ref{fig:square-diag-disp}.
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-diag-cd=0.1}.pdf}
+                \caption{$c_d/c = 0.1$ and $a=b$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-diag-cd=0.707107}.pdf}
+                \caption{$c_d/c = \sqrt{2}/2$ and $a=b$.}
+        \end{subfigure}\\
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-diag-cd=1}.pdf}
+                \caption{$c_d/c = 1$ and $a=b$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-diag-cd=10}.pdf}
+                \caption{$c_d/c = 10$ and $a=b$.}
+        \end{subfigure}
+        \caption{Dispersion curves for different values of spring ratios $c_d/c$.}\label{fig:square-diag-disp}
+\end{figure}
 
 \section{2D square lattice with body mass and diagonal springs}
 In this case we have a rectangular cell with springs with constant $c$ in the sides. We added a second mass $m_2$ to the center of the cell, and diagonal springs with constant $c_d$ (see Figure \ref{fig:square-bcc}). It should be noted that the value $c_d$ is the \emph{effective} spring in the $x$ and $y$ directions --they are the same for a square lattice, in the case of $a\neq b$ the constants should vary.
@@ -417,6 +441,67 @@ Assuming $a=b$, we can group the modes as degenerate ones and consider the most 
 the same argument holds for the other two, giving
 \[\omega_{\text{high}}^2 = \frac{2c_s \mathbf{k}^2a^2 + 2c_d\left[4m_1^2 + 4m_2^2 + \left(8 - \mathbf{k}^2 a^2\right)m_1 m_2\right] } {m_1 m_2 (m_2 + m_1)} \enspace .\]
 
+Figure \ref{fig:square-bcc-disp} shows the dispersion modes for ratios $m_2/m_1=1$ and $c_d/c_s=1$.
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/square-bcc-disp1-c=1-m=1.pdf}\caption{First branch.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/square-bcc-disp2-c=1-m=1.pdf}\caption{Second branch.}
+         \end{subfigure}
+ \caption{$c_d/c = 1$, $m_1/m_2=1$ and $a=b$.}\label{fig:square-bcc-disp}
+\end{figure}
+Figure \ref{fig:square-bcc-disp1} shows the first branch of the dispersion curves for different ratios $m_2/m_1$ and $c_d/c_s$.
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-bcc-disp1-c=0.1-m=1}.pdf}
+                \caption{$c_d/c = 0.1$, $m_2/m_1=1$ and $a=b$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-bcc-disp1-c=10-m=1}.pdf}
+                \caption{$c_d/c = 10$, $m_2/m_1=1$ and $a=b$.}
+        \end{subfigure}\\
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-bcc-disp1-c=1-m=0.1}.pdf}
+                \caption{$c_d/c = 1$, $m_2/m_1=0.1$ and $a=b$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-bcc-disp1-c=1-m=10}.pdf}
+                \caption{$c_d/c = 0.1$, $m_2/m_1=10$ and $a=b$.}
+        \end{subfigure}
+        \caption{First branch of the dispersion curves.}\label{fig:square-diag-disp1}
+\end{figure}
+
+Figure \ref{fig:square-bcc-disp2} shows the second branch of the dispersion curves for different ratios $m_2/m_1$ and $c_d/c_s$.
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-bcc-disp2-c=0.1-m=1}.pdf}
+                \caption{$c_d/c = 0.1$, $m_2/m_1=1$ and $a=b$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-bcc-disp2-c=10-m=1}.pdf}
+                \caption{$c_d/c = 10$, $m_2/m_1=1$ and $a=b$.}
+        \end{subfigure}\\
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-bcc-disp2-c=1-m=0.1}.pdf}
+                \caption{$c_d/c = 1$, $m_2/m_1=0.1$ and $a=b$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-bcc-disp2-c=1-m=10}.pdf}
+                \caption{$c_d/c = 0.1$, $m_2/m_1=10$ and $a=b$.}
+        \end{subfigure}
+        \caption{Second branch of the dispersion curves.}\label{fig:square-diag-disp2}
+\end{figure}
 
 \end{document}
 
