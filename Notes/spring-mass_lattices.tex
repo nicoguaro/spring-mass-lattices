@@ -284,11 +284,12 @@ Or, equivalently
 \caption{Isofrequency contours for the first mode.}
 \end{figure}
 
-\section{2D square lattice with diagonal springs}
+\section{2D rectangular lattice with diagonal springs}
+In this case we have a rectangular cell with springs with constant $c$ in the sides. We added diagonal springs with constants $c_d$ (see Figure \ref{fig:square-diag}). It should be noted that the value $c_d$ is the \emph{effective} spring in the $x$ and $y$ directions --they are the same for a square lattice, in the case of $a\neq b$ the constants should vary.
 \begin{figure}[h]
 \centering
 \includegraphics[height=5cm]{img/spring-square-diag.pdf} 
-\caption{Unit cell for a two dimensional square lattice with a unique species and diagonal springs.}
+\caption{Unit cell for a two dimensional square lattice with a unique species and diagonal springs.}\label{fig:square-diag}
 \end{figure}
 
 The system of equation in frequency domain is
@@ -340,10 +341,11 @@ We recover the square lattice (without diagonals) making $c_d=0$.
 
 
 \section{2D square lattice with body mass and diagonal springs}
+In this case we have a rectangular cell with springs with constant $c$ in the sides. We added a second mass $m_2$ to the center of the cell, and diagonal springs with constant $c_d$ (see Figure \ref{fig:square-bcc}). It should be noted that the value $c_d$ is the \emph{effective} spring in the $x$ and $y$ directions --they are the same for a square lattice, in the case of $a\neq b$ the constants should vary.
 \begin{figure}[h]
 \centering
 \includegraphics[height=5cm]{img/spring-square-bcc.pdf} 
-\caption{Unit cell for a two dimensional square lattice with a unique species in the corners and another one in the center that is linked by diagonal springs.}
+\caption{Unit cell for a two dimensional square lattice with a unique species in the corners and another one in the center that is linked by diagonal springs.}\label{fig:square-bcc}
 \end{figure}
 \begin{equation}
 \mathbb{K}
