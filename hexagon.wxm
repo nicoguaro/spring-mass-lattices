@@ -1,0 +1,229 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 13.04.2 ] */
+
+/* [wxMaxima: input   start ] */
+kill(all);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+depends([x,y,u,v], t);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: section start ]
+Equations of motion
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+The kinetic energy has the form
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+T(i):=1/6*m*(u[i]**2 + v[i]**2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+cx: c*cos(%pi/3);
+cy: c*sin(%pi/3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+The potential energy has the form
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+V[1]: 1/2*cx*(x[2] - x[1])**2 + 1/2*c*(x[6] - x[1])**2 +  1/2*cy*(y[2] - y[1])**2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+V[2]: 1/2*cx*(x[3] - x[2])**2 + 1/2*cx*(x[1] - x[2])**2 +  1/2*cy*(y[3] - y[2])**2 + 1/2*cy*(y[1] - y[2])**2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+V[3]: 1/2*cx*(x[2] - x[3])**2 + 1/2*c*(x[4] - x[3])**2 +  1/2*cy*(y[2] - y[3])**2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+V[4]:  1/2*cx*(x[5] - x[4])**2 + 1/2*c*(x[3] - x[4])**2 +  1/2*cy*(y[5] - y[4])**2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+V[5]: 1/2*cx*(x[4] - x[5])**2 + 1/2*cx*(x[6] - x[5])**2 +  1/2*cy*(y[4] - y[5])**2 + 1/2*cy*(y[6] - y[5])**2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+V[6]:  1/2*cx*(x[2] - x[1])**2 + 1/2*c*(x[6] - x[1])**2 +  1/2*cy*(y[2] - y[1])**2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+L:ratsimp(sum(T(i) - V[i]/2, i, 1, 6));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+xx:apply(append, makelist([x[i], y[i]],i,1,6));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+uu:apply(append, makelist([u[i], v[i]],i,1,6));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+K:genmatrix(lambda([i,j], 0), 12, 12)$
+M:genmatrix(lambda([i,j], 0), 12, 12)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+for i:1 thru 12 do(
+    eq:ratsimp(diff(L,xx[i])) = diff(diff(L,uu[i]), t),
+    eq: subst([diff(uu[i],t)=-omega^2*xx[i]], eq),
+    for j:1 thru 12 do(
+        K[i,j] : diff(lhs(eq),xx[j]),
+        M[i,j] : diff(rhs(eq),xx[j])
+    )
+);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+And the corresponding matrices are
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+K;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+M;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: section start ]
+
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: comment start ]
+In this case we don't need to make the row/column operations
+on the mass matrix, since it is an identity matrix (times a
+constant).
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Row 2 and 3 by exp(-%i*kx*a)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+phase_x: a*[cos(%pi/3), 1, cos(%pi/3), -cos(%pi/3), -1, -cos(%pi/3)];
+phase_y: a*[-sin(%pi/3), 0, sin(%pi/3), sin(%pi/3), 0, -sin(%pi/3)];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+M1: genmatrix(lambda([i,j], if i=j then exp(-%i*kx*phase_x[floor((i+1)/2)])*exp(-%i*ky*phase_y[floor((i+1)/2)])
+ else 0), 12, 12);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+K2:M1.K.ctranspose(M1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+rows 3,7 added to 11; 4,8 added to 12; 1,5 added to 9; and 4,2 added to 10
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+S1: genmatrix(lambda([i,j], 
+    if i=j then 1 
+    else
+        if (i=9 and (j=1 or j=5)) or (i=10 and (j=2 or j=6)) or (i=11 and (j=3 or j=7)) or (i=12 and (j=4 or j=8))
+             then 1 
+    else 0),
+    12, 12);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+K3:S1.K2.transpose(S1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+M2:S1.M.transpose(S1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+del rows 1 to 8
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+D: genmatrix(lambda([i,j], if (i=1 and j=9) or (i=2 and j=10) or 
+                              (i=3 and j=11) or (i=4 and j=12) 
+then 1 else 0), 4, 12);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+D.K3.transpose(D),factor;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+K4:trigrat(D.K3.transpose(D));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+M3:D.M2.transpose(D);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+We don't need c/m since they can be a factor to divide the eigenvalues
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+Keff:invert(M3/omega^2).(K4)/c*m,expand;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+evals:eigenvalues(Keff)[1]$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Linearized eigenvalues
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+wlin1: taylor(subst([a=1],evals[1]), [kx, ky], 0, 2),ratsimp;
+wlin2: taylor(subst([a=1],evals[3]), [kx, ky], 0, 2),ratsimp;
+wlin3: taylor(subst([a=1],evals[2]), [kx, ky], 0, 2),ratsimp;
+wlin4: taylor(subst([a=1],evals[4]), [kx, ky], 0, 2),ratsimp;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+And their superposition
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+w_low: sqrt(wlin1 + wlin2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+w_hi: sqrt(wlin3 + wlin4);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot3d(subst([a=1,c=1,m=1],w_low), [kx,-%pi,%pi], [ky,-%pi,%pi],[legend,false],
+                 [colorbox, true], [gnuplot_preamble, "set cntrparam levels 10"]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot3d(subst([a=1,c=1,m=1],w_hi), [kx,-%pi,%pi], [ky,-%pi,%pi],[legend,false],
+                 [colorbox, true], [gnuplot_preamble, "set cntrparam levels 10"]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+plot3d(subst([a=1,c=1,m=1],sqrt(evals[1] + evals[3])), [kx,-%pi,%pi], [ky,-%pi,%pi],[legend,false],
+                 [colorbox, true], [gnuplot_preamble, "set cntrparam levels 10"]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot3d(subst([a=1,c=1,m=1],sqrt(evals[2] + evals[4])), [kx,-%pi,%pi], [ky,-%pi,%pi],[legend,false],
+                 [colorbox, true], [gnuplot_preamble, "set cntrparam levels 10"]);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
