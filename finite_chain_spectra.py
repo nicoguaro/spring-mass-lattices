@@ -9,6 +9,14 @@ mass and springs
 """
 
 import numpy as np
+import matplotlib.pyplot as plt
+from scipy import sparse
+from scipy.sparse.linalg import dsolve
+from matplotlib import rcParams
+ 
+rcParams['font.family'] = 'serif'
+rcParams['font.size'] = 16 
+
 
 def n_springs(N, f_vec):
     """
@@ -16,15 +24,35 @@ def n_springs(N, f_vec):
     of $N$ springs. The range of frequencies
     is given by $[f_{\min}, f_{\max}]$.
     """
-    npts = len(f_vec)
-    A_mat = np.zeros((N, N))
+    nfreq = len(f_vec)
+    uf_ratio = np.zeros(nfreq)
+    for k, freq in enumerate(f_vec):
+        d_main = -2.0*np.ones(N) + freq**2
+        d_main[0] = -1.0 + freq**2
+        d_main[-1] = -1.0  + freq**2 
+        d_low = np.ones(N)
+        data = [d_low, d_main, d_low]
+        diags = [-1,0,1]   
+        A = sparse.spdiags(data, diags, N, N, format='csc')
+        force = np.zeros(N)
+        force[0] = -1.0
+        
+        x = dsolve.spsolve(A, force)
+        uf_ratio[k] = x[-1]
+         
+     
+    return uf_ratio
     
-    #  Fill the matrices
+N_vec = [1, 5, 10, 20,  50]
+npts = 10000
+f_vec = np.linspace(1e-3, 5, npts)
+for N in N_vec:
+    uf_ratio = n_springs(N, f_vec)
+    plt.semilogy(f_vec, abs(uf_ratio), label="N=%i"%N)
+    plt.ylim(1e-12, 1e3)
+    plt.yticks(np.logspace(-12, 3, 6))
     
-    # Make a loop to compute the solution for every frequency
-    
-    return 2*f_vec # Return solution
-    
-    
-f_vec = np.linspace(1e-6, 5)
-uf_ratio = n_springs(10, f_vec)
+plt.grid(True, color="blue", alpha=0.4)
+plt.xlabel(r"$\Omega$", size=18)
+plt.ylabel(r"$\log(u_N/f_0)$", size=18)
+plt.legend(loc="best")
