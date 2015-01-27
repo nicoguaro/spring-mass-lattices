@@ -43,7 +43,7 @@ def n_springs(N, f_vec):
      
     return uf_ratio
     
-N_vec = [1, 5, 10, 20,  50]
+N_vec = [1, 5, 10,  50]
 npts = 10000
 f_vec = np.linspace(1e-3, 5, npts)
 for N in N_vec:
@@ -54,5 +54,9 @@ for N in N_vec:
     
 plt.grid(True, color="blue", alpha=0.4)
 plt.xlabel(r"$\Omega$", size=18)
-plt.ylabel(r"$\log(u_N/f_0)$", size=18)
+plt.ylabel(r"$u_N/\hat{f}_0$", size=18)
 plt.legend(loc="best")
+plt.savefig("Notes/img/single_finite.svg")
+plt.savefig("Notes/img/single_finite.pdf", bbox="tight")
+
+plt.show()

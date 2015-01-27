@@ -110,6 +110,94 @@ and this could be rewritten as
 \end{equation}
 which is the same result obtained before.
 
+\subsection{Finite case}
+\begin{figure}[h]
+\centering
+\includegraphics[height=1.8cm]{img/spring-mass-finite.pdf} 
+\caption{Finite simple mass-spring lattice.}\label{fig:spring-mass-finite}
+\end{figure}
+In practice, we cannot have infinite (periodic) repetition of unit cells, and, at some point, we need to truncate them to make them finite (Figure \ref{fig:spring-mass-finite}). When the number of unit cells increase, the behavior should get closer to the infinite case, and the presence of bandgaps could be inferred from the analysis of the response in frequency.
+
+If we start from a single unit cell the equations of motion for harmonic force of frequency $\omega$ are given by
+\begin{align*}
+&-c(u_0 - u_1) + f_0 = -\omega^2 m u_0\\
+&-c(u_1 - u_0) = -\omega^2 m u_1 \enspace ,
+\end{align*}
+or
+\[\begin{bmatrix}
+-1 + \Omega^2 & 1 \\ 
+1 & -1 + \Omega^2
+\end{bmatrix}\begin{pmatrix}
+u_0 \\ 
+u_1
+\end{pmatrix} =\begin{pmatrix}
+-\hat{f}_0 \\ 
+0
+\end{pmatrix} \enspace , \]
+where we normalized the equation.  $\Omega^2 = \omega^2/\omega_0^2 = \omega^2/(k/m)$ and $\hat{f}_0 = f_0/c$. And the solutions for this system of equations is
+\begin{align*}
+u_0 &= \frac{\hat{f}_0(1 - \Omega^2)}{\Omega^2(\Omega^2 - 2)}\\
+u_1 &= \frac{\hat{f}_0}{\Omega^2(\Omega^2 - 2)} \enspace .
+\end{align*}
+We are interested in the response of the last mass with respect to the force impinged in the first one, i.e.
+\[\frac{u_1}{\hat{f}_0} = \frac{1}{\Omega^2(\Omega^2 - 2)} \enspace .\]
+
+If we take two unit cells the (dimensionless) system of equations read
+\[\begin{bmatrix}
+-1 & 1 & 0 \\ 
+1 & -2 & 1 \\ 
+0 & 1 & -1
+\end{bmatrix} \begin{pmatrix}
+u_0 \\ 
+u_1 \\ 
+u_2
+\end{pmatrix} + \Omega^2 \begin{pmatrix}
+u_0 \\ 
+u_1 \\ 
+u_2
+\end{pmatrix} = 
+\begin{pmatrix}
+-\hat{f}_0 \\ 
+0 \\ 
+0
+\end{pmatrix} \enspace , \]
+where the solutions are
+\begin{align*}
+u_0 &= \frac{\hat{f}_0(\Omega^2 - \Omega - 1)(\Omega^2 + \Omega -1)}{\Omega^2(\Omega-1)(\Omega +1)(\Omega^2 - 3)}\\
+u_1 &= \frac{-\hat{f}_0}{\Omega^2(\Omega^2-3)}\\
+u_2 &= \frac{\hat{f}_0}{\Omega^2(\Omega-1)(\Omega +1)(\Omega^2 - 3)} \enspace .
+\end{align*}
+And the response in this case is given by
+\[\frac{u_2}{\hat{f}_0} = \frac{1}{\Omega^2(\Omega-1)(\Omega +1)(\Omega^2 - 3)}\]
+
+In the case of $N$ unit cells the system of equations is
+\[\begin{bmatrix}
+-1 + \Omega^2 & 1 & \cdots & 0 & 0 \\ 
+1 & -2 + \Omega^2 & \cdots & 0 & 0 \\ 
+\vdots & \vdots & \ddots & \vdots & \vdots \\ 
+0 & 0 & \cdots & -2 + \Omega^2 & 1 \\ 
+0 & 0 & \cdots & 1 & -1 + \Omega^2
+\end{bmatrix}\begin{pmatrix}
+u_0 \\ 
+u_1 \\ 
+\vdots \\ 
+u_{N-1} \\ 
+u_N
+\end{pmatrix} =\begin{pmatrix}
+-\hat{f}_0 \\ 
+0 \\ 
+\vdots \\ 
+0 \\ 
+0
+\end{pmatrix} \enspace .   \]
+Given the structure of the matrix it is possible that the system has a closed solution. Here, we solved the system numerically and plotted the ratio $u_N/\hat{f}_0$ for different $N$ values (Figure \ref{fig:single-finite}).
+\begin{figure}[h]
+\centering
+\includegraphics[height=7cm]{img/single_finite.pdf} 
+\caption{Frequency response for a finite mass-spring lattice.}\label{fig:single-finite}
+\end{figure}
+
+
 %% 
 \section{Diatomic crystal}
 \begin{figure}[h]
