@@ -59,6 +59,7 @@ By a trigonometric identity (\ref{eq:single-spring-lattice}) may be written as
 \centering
 \includegraphics[height=8cm]{img/spring-mass-plot.pdf} 
 \caption{Plot of $\omega$ versus $k$. The region of $k<<1/a$ or $\lambda>>a$ corresponds to the continuum approximation; where $\omega$ is directly proportional to k. The First Brillouin Zone is placed between $-\pi/a$ and $\pi/a$.}
+\label{fig:spring-mass-dispersion}
 \end{figure}
 
 \subsection{Unit cell formulation}
@@ -69,40 +70,41 @@ c(u_1 - u_2) &= -\frac{m}{2} \omega^2 u_2 \enspace ,
 \end{align*}
 we should take care since the total amount of mass in the cell should be consistent. That's why we choose each particle to have $m/2$. And this system could be expressed as
 \begin{equation}
-c\left[ \begin{array}{cc}
+c\begin{bmatrix}
 -1 & 1 \\ 
 1 & -1
-\end{array}  \right] \left\lbrace \mathbf{u} \right\rbrace =
--\frac{m}{2}\left[ \begin{array}{cc}
+\end{bmatrix} \left\lbrace \mathbf{u} \right\rbrace =
+-\frac{m\omega^2}{2}
+\begin{bmatrix}
 1 & 0 \\ 
 0 & 1
-\end{array}  \right] \left\lbrace \mathbf{u} \right\rbrace \enspace ,
+\end{bmatrix} \left\lbrace \mathbf{u} \right\rbrace \enspace ,
 \end{equation}
 multiplying the second row by $\exp(-ika)$ and the second column by its complex conjugate $\exp(ika)$ we get
 \begin{equation*}
-c\left[ \begin{array}{cc}
+c\begin{bmatrix}
 -1 & e^{ika} \\ 
 e^{-ika} & -1
-\end{array}  \right] \left\lbrace \mathbf{u} \right\rbrace =
--\frac{m}{2}\left[ \begin{array}{cc}
+\end{bmatrix} \left\lbrace \mathbf{u} \right\rbrace =
+-\frac{m\omega^2}{2}\begin{bmatrix}
 1 & 0 \\ 
 0 & 1
-\end{array}  \right] \left\lbrace \mathbf{u} \right\rbrace \enspace ,
+\end{bmatrix} \left\lbrace \mathbf{u} \right\rbrace \enspace ,
 \end{equation*}
 adding the second row to first one, and then adding the second column to first one yields
 \begin{equation*}
-c\left[ \begin{array}{cc}
+c\begin{bmatrix}
 e^{ika}+e^{-ika}-2 & e^{ika}-1 \\ 
 e^{-ika}-1 & -1
-\end{array}  \right] \left\lbrace \mathbf{u} \right\rbrace =
--\frac{m}{2}\left[ \begin{array}{cc}
+\end{bmatrix} \left\lbrace \mathbf{u} \right\rbrace =
+-\frac{m\omega^2}{2}\begin{bmatrix}
 2 & 1 \\ 
 1 & 1
-\end{array}  \right] \left\lbrace \mathbf{u} \right\rbrace \enspace .
+\end{bmatrix} \left\lbrace \mathbf{u} \right\rbrace \enspace .
 \end{equation*}
 Now, were interested just in the reduced system, we delete the second row and column and get
 \begin{equation}
-\frac{c}{m}\left[ e^{ika}+e^{-ika}-2 \right] = \omega^2 \enspace ,
+\frac{c}{m}\left[ e^{ika}+e^{-ika}-2 \right] = -\omega^2 \enspace ,
 \end{equation}
 and this could be rewritten as
 \begin{equation}
@@ -124,43 +126,56 @@ If we start from a single unit cell the equations of motion for harmonic force o
 &-c(u_1 - u_0) = -\omega^2 m u_1 \enspace ,
 \end{align*}
 or
-\[\begin{bmatrix}
+\begin{equation}
+\begin{bmatrix}
 -1 + \Omega^2 & 1 \\ 
 1 & -1 + \Omega^2
-\end{bmatrix}\begin{pmatrix}
+\end{bmatrix}
+\begin{Bmatrix}
 u_0 \\ 
 u_1
-\end{pmatrix} =\begin{pmatrix}
+\end{Bmatrix} =
+\begin{Bmatrix}
 -\hat{f}_0 \\ 
 0
-\end{pmatrix} \enspace , \]
-where we normalized the equation.  $\Omega^2 = \omega^2/\omega_0^2 = \omega^2/(k/m)$ and $\hat{f}_0 = f_0/c$. And the solutions for this system of equations is
+\end{Bmatrix} \enspace , 
+\label{eq:1_cell_finite}
+\end{equation}
+where we normalized the equation.  $\Omega^2 = \omega^2/\omega_0^2 = \omega^2/(c/m)$ and $\hat{f}_0 = f_0/c$. And the solutions for this system of equations is
 \begin{align*}
 u_0 &= \frac{\hat{f}_0(1 - \Omega^2)}{\Omega^2(\Omega^2 - 2)}\\
 u_1 &= \frac{\hat{f}_0}{\Omega^2(\Omega^2 - 2)} \enspace .
 \end{align*}
 We are interested in the response of the last mass with respect to the force impinged in the first one, i.e.
-\[\frac{u_1}{\hat{f}_0} = \frac{1}{\Omega^2(\Omega^2 - 2)} \enspace .\]
+\begin{equation}
+\frac{u_1}{\hat{f}_0} = \frac{1}{\Omega^2(\Omega^2 - 2)} \enspace .
+\label{eq:response_1_cell_finite}
+\end{equation}
 
-If we take two unit cells the (dimensionless) system of equations read
-\[\begin{bmatrix}
+For the case of two unit cells the (dimensionless) system of equations read
+\begin{equation}
+\begin{bmatrix}
 -1 & 1 & 0 \\ 
 1 & -2 & 1 \\ 
 0 & 1 & -1
-\end{bmatrix} \begin{pmatrix}
+\end{bmatrix}
+\begin{Bmatrix}
 u_0 \\ 
 u_1 \\ 
 u_2
-\end{pmatrix} + \Omega^2 \begin{pmatrix}
+\end{Bmatrix} + 
+\Omega^2 \begin{Bmatrix}
 u_0 \\ 
 u_1 \\ 
 u_2
-\end{pmatrix} = 
-\begin{pmatrix}
+\end{Bmatrix} = 
+\begin{Bmatrix}
 -\hat{f}_0 \\ 
 0 \\ 
 0
-\end{pmatrix} \enspace , \]
+\end{Bmatrix} \enspace , 
+\label{eq:2_cell_finite_sys}
+\end{equation}
 where the solutions are
 \begin{align*}
 u_0 &= \frac{\hat{f}_0(\Omega^2 - \Omega - 1)(\Omega^2 + \Omega -1)}{\Omega^2(\Omega-1)(\Omega +1)(\Omega^2 - 3)}\\
@@ -168,34 +183,45 @@ u_1 &= \frac{-\hat{f}_0}{\Omega^2(\Omega^2-3)}\\
 u_2 &= \frac{\hat{f}_0}{\Omega^2(\Omega-1)(\Omega +1)(\Omega^2 - 3)} \enspace .
 \end{align*}
 And the response in this case is given by
-\[\frac{u_2}{\hat{f}_0} = \frac{1}{\Omega^2(\Omega-1)(\Omega +1)(\Omega^2 - 3)}\]
+\begin{equation}
+\frac{u_2}{\hat{f}_0} = \frac{1}{\Omega^2(\Omega-1)(\Omega +1)(\Omega^2 - 3)} \enspace .
+\label{eq:2_cell_finite_response}
+\end{equation}
 
 In the case of $N$ unit cells the system of equations is
-\[\begin{bmatrix}
+\begin{equation}
+\begin{bmatrix}
 -1 + \Omega^2 & 1 & \cdots & 0 & 0 \\ 
 1 & -2 + \Omega^2 & \cdots & 0 & 0 \\ 
 \vdots & \vdots & \ddots & \vdots & \vdots \\ 
 0 & 0 & \cdots & -2 + \Omega^2 & 1 \\ 
 0 & 0 & \cdots & 1 & -1 + \Omega^2
-\end{bmatrix}\begin{pmatrix}
+\end{bmatrix}
+\begin{Bmatrix}
 u_0 \\ 
 u_1 \\ 
 \vdots \\ 
 u_{N-1} \\ 
 u_N
-\end{pmatrix} =\begin{pmatrix}
+\end{Bmatrix} =
+\begin{Bmatrix}
 -\hat{f}_0 \\ 
 0 \\ 
 \vdots \\ 
 0 \\ 
 0
-\end{pmatrix} \enspace .   \]
+\end{Bmatrix} \enspace .
+\label{eq:N_cell_finite_sys}
+\end{equation}
+
 Given the structure of the matrix it is possible that the system has a closed solution. Here, we solved the system numerically and plotted the ratio $u_N/\hat{f}_0$ for different $N$ values (Figure \ref{fig:single-finite}).
 \begin{figure}[h]
 \centering
-\includegraphics[height=7cm]{img/single_finite.pdf} 
+\includegraphics[height=8cm]{img/single_finite.pdf} 
 \caption{Frequency response for a finite mass-spring lattice.}\label{fig:single-finite}
 \end{figure}
+
+We can see that for $N$ big enough there is not propagation for frequencies larger than $\Omega=2$, what was expected based on the Bloch analysis and the dispersion curves presented in Figure \ref{fig:spring-mass-dispersion}.
 
 
 %% 
@@ -227,10 +253,10 @@ Replacing (\ref{eq:diatomic-sol}) in (\ref{eq:diatomic-eq}) we have
 -\omega^2 m_2 v = cu[1+\exp(ika)] - 2cv.
 \end{align*}
 It has no trivial solution only if the determinant vanishes, i.e.
-\[\left\vert \begin{array}{cc}
+\[\begin{vmatrix}
 2c - m_1 \omega^2 & -c[1+\exp(-ika)] \\ 
 -c[1+\exp(ika)] & 2c - m_2 \omega^2
-\end{array}  \right\vert = 0,\]
+\end{vmatrix}   = 0,\]
 or
 \begin{equation}
 m_1 m_2 \omega^4 - 2c(m_1 + m_2)\omega^2 + 2c^2(1-\cos ka)=0 \enspace .
@@ -243,6 +269,7 @@ Solving this biquadratic equation and doing some algebraic manipulations, we get
 \centering
 \includegraphics[height=8cm]{img/diatomic-plot.pdf} 
 \caption{Optical and acoustical branches of the dispersion relation for a diatomic linear lattice. The values are computed for a ratio $m_2/m_1 = 2$.}
+\label{fig:diatomic_dispersion}
 \end{figure}
 Let's examine the limiting cases $ka<<1$ and $ka=\pm \pi$ at the boundary zone. For small $ka$ we have $\cos ka \approx 1 - \frac{1}{2}k^2a^2 + \cdots$, and the two roots are
 \begin{align}
@@ -251,6 +278,162 @@ Let's examine the limiting cases $ka<<1$ and $ka=\pm \pi$ at the boundary zone. 
 \end{align}
 At $k_{max}=\pm\pi/a$ the roots are
 \[\omega^2 = 2c/m_1,\quad \omega^2 = 2c/m_2 \enspace .\]
+
+\subsection{Finite case}
+\begin{figure}[h]
+\centering
+\includegraphics[height=2.5cm]{img/diatomic-finite.pdf} 
+\caption{Finite \emph{lattice} made with spring and two species of masses.}
+\label{fig:diatomic-finite}
+\end{figure}
+
+For the case of a single unit cell the system of equation read
+\begin{align*}
+&-c(u_0 - v_0) + f_0 = -\omega^2 m_1 u_0\\
+&-c(v_0 - u_0) - c(v_0 - u_1) = -\omega^2 m_2 v_0\\
+&-c(u_1 - v_0) = -\omega^2 m_1 u_1 \enspace ,
+\end{align*}
+or
+\[
+c\begin{bmatrix}
+-1 & 1 & 0 \\ 
+1 & -2 & 1 \\ 
+0 & 1 & -1
+\end{bmatrix}
+\begin{Bmatrix}
+u_0 \\ 
+v_0 \\ 
+u_1
+\end{Bmatrix} + m_1\omega^2\begin{bmatrix}
+1 & 0 & 0 \\ 
+0 & \frac{m_2}{m_1} & 0 \\ 
+0 & 0 & 1
+\end{bmatrix}
+\begin{Bmatrix}
+u_0 \\ 
+v_0 \\ 
+u_1
+\end{Bmatrix} = 
+\begin{Bmatrix}
+-f_0 \\ 
+0 \\ 
+0
+\end{Bmatrix}  \enspace ,
+\]
+making $\hat{f}_0=f_0/c$, $\Omega^2=\omega^2/\omega_0^2$, $\omega_0^2=c/m_1$, $\mu=m_2/m_1$ we obtain
+\begin{equation}
+\begin{bmatrix}
+-1 + \Omega^2 & 1 & 0 \\ 
+1 & -2 + \mu\Omega^2 & 1 \\ 
+0 & 1 & -1 + \Omega^2
+\end{bmatrix}
+\begin{Bmatrix}
+u_0 \\ 
+v_0 \\ 
+u_1
+\end{Bmatrix}  = 
+\begin{Bmatrix}
+-\hat{f}_0 \\ 
+0 \\ 
+0
+\end{Bmatrix} \enspace .
+\label{eq:1_cell_diatomic}
+\end{equation}
+
+The solution of this system is given by
+\begin{align*}
+u_0 &= \frac{-\hat{f}_0 (\mu\Omega^4 - \mu\Omega^2 - 2\Omega^2 +1)}{\Omega^2 (\Omega - 1) (\Omega +1) (\mu\Omega^2 - \mu - 2)}\\
+v_0 &= \frac{\hat{f}_0}{\Omega^2 (\mu\Omega^2 - \mu - 2)}\\
+u_1 &= \frac{-\hat{f}_0}{\Omega^2 (\Omega - 1) (\Omega +1) (\mu\Omega^2 - \mu - 2)} \enspace ,
+\end{align*}
+thus, the response is given by
+\begin{equation}
+\frac{u_1}{\hat{f}_0} = \frac{-1}{\Omega^2 (\Omega - 1) (\Omega +1) (\mu\Omega^2 - \mu - 2)} \enspace .
+\label{eq:1_cell_diatomic_response}
+\end{equation}
+
+For the case of two unit cells the system of (dimensionless) equations is written as
+\begin{equation}
+\begin{bmatrix}
+-1 + \Omega^2 & 1 & 0 & 0 & 0 \\ 
+1 & -2+ \mu\Omega^2 & 1 & 0 & 0 \\ 
+0 & 1 & -2+ \Omega^2 & 1 & 0 \\ 
+0 & 0 & 1 & -2+ \mu\Omega^2 & 1 \\ 
+0 & 0 & 0 & 1 & -1+ \Omega^2
+\end{bmatrix}
+\begin{Bmatrix}
+u_0 \\ 
+v_0 \\ 
+u_1 \\ 
+v_1 \\ 
+u_2
+\end{Bmatrix}  =
+\begin{Bmatrix}
+-\hat{f}_0 \\ 
+0 \\ 
+0 \\ 
+0 \\ 
+0
+\end{Bmatrix}  \enspace ,
+\end{equation}
+with solutions
+\begin{align*}
+u_0 &= \frac{-\hat{f}_0({\mu}^2\Omega^8 - 3{\mu}^2\Omega^6 - 4\mu\Omega^6 + 2{\mu}^2\Omega^4 + 9\mu\Omega^4 + 4\Omega^4 - 4\mu\Omega^2 - 6\Omega^2 + 1) }{\Omega^2(\mu\Omega^4 - 3\mu\Omega^2 - 2\Omega^2 + 2\mu + 3) (\mu\Omega^4 - \mu\Omega^2 - 2\Omega^2 + 1) }\\
+v_0 &= \frac{\hat{f}_0(\mu\Omega^6 - 3\mu\Omega^4 - 2\Omega^4 + 2\mu\Omega^2 + 4\Omega^2 - 1) }{\Omega^2(\mu\Omega^4 - 3\mu\Omega^2 - 2\Omega^2 + 2\mu + 3) (\mu\Omega^4 - \mu\Omega^2 - 2\Omega^2 + 1) }\\
+u_1 &= \frac{-\hat{f}_0}{\Omega^2(\mu\Omega^4 - 3\mu\Omega^2 - 2\Omega^2 + 2\mu + 3) }\\
+v_1 &= \frac{\hat{f}_0(\Omega - 1) (\Omega + 1) }{\Omega^2(\mu\Omega^4 - 3\mu\Omega^2 - 2\Omega^2 + 2\mu + 3) (\mu\Omega^4 - \mu\Omega^2 - 2\Omega^2 + 1) }\\
+u_2 &= \frac{-\hat{f}_0}{\Omega^2(\mu\Omega^4 - 3\mu\Omega^2 - 2\Omega^2 + 2\mu + 3) (\mu\Omega^4 - \mu\Omega^2 - 2\Omega^2 + 1)} \enspace ,
+\end{align*}
+then, the response is
+\begin{equation}
+\frac{u_2}{\hat{f}_0} = \frac{-1}{\Omega^2(\mu\Omega^4 - 3\mu\Omega^2 - 2\Omega^2 + 2\mu + 3) (\mu\Omega^4 - \mu\Omega^2 - 2\Omega^2 + 1)} \enspace .
+\label{eq:2_cell_diatomic_response}
+\end{equation}
+
+For $N$ unit cells the (dimensionless) system of equation is of the form
+\begin{equation}
+\mathbb{A}
+\begin{Bmatrix}
+u_0 \\ 
+v_0 \\ 
+u_1 \\ 
+\vdots \\ 
+u_{N-1} \\ 
+v_{N-1} \\ 
+u_N
+\end{Bmatrix} = 
+\begin{Bmatrix}
+-\hat{f}_0 \\ 
+0 \\ 
+0 \\ 
+0 \\ 
+0 \\ 
+0 \\ 
+0
+\end{Bmatrix}
+\end{equation}
+with
+\[\mathbb{A} = \begin{bmatrix}
+-1 + \Omega^2 & 1 & 0 & \cdots & 0 & 0 & 0 \\ 
+1 & -2 +\mu \Omega^2 & 1 & \cdots & 0 & 0 & 0 \\ 
+0 & 1 & -2 + \Omega^2 & \cdots & 0 & 0 & 0 \\ 
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\ 
+0 & 0 & 0 & \cdots & -2 + \Omega^2 & 1 & 0 \\ 
+0 & 0 & 0 & \cdots & 1 & -2 +\mu \Omega^2 & 1 \\ 
+0 & 0 & 0 & \cdots & 0 & 1 & -1 + \Omega^2
+\end{bmatrix} \]
+
+
+One more time, the matrix present a structure and it might be  possible that the system has a closed solution. Here, we solved the system numerically and plotted the ratio $u_N/\hat{f}_0$ for different $N$ values and a mass ratio $\mu=m_2/m_1=2$ (Figure \ref{fig:diatomic-finite}).
+\begin{figure}[h]
+\centering
+\includegraphics[height=8cm]{img/diatomic_finite.pdf} 
+\caption{Frequency response for a finite mass-spring lattice for unit cell composed of two different masses.}\label{fig:diatomic-finite}
+\end{figure}
+
+We can see that for $N$ big enough there is not propagation for frequencies in the interval $\Omega \in [\sqrt{2/\mu}, \sqrt{2/\mu}]$, and for $\Omega > \sqrt{\frac{2}{\mu}(1 + \mu)}$, 
+what was expected based on the Bloch analysis and the dispersion curves presented in Figure \ref{fig:diatomic_dispersion}. The mass ratio used was $\mu=2$, what gives as interval $\Omega \in [1, \sqrt{2}]$ and a cut frequency of $\Omega = \sqrt{3}$, that are clearly depicted in Figure \ref{fig:diatomic_dispersion}.
+
 
 \section{Three masses lattice}
 The equations are
@@ -262,25 +445,25 @@ m_3\frac{d^2 w_s}{dt^2} =c(u_{s+1}+v_{s}-2w_s).
 \end{align}
 \label{eq:three-masses}
 \end{subequations}
-After assume an harmonic solution and apply Bloch conditions the following system is found
+After assumin an harmonic solution and apply Bloch conditions the following system is found
  \begin{equation}
-\left[ \begin{array}{ccc}
+\left[ \begin{matrix}
 -2 & 1 & \exp(-ika) \\ 
 1 & -2 & 1 \\ 
 \exp(ika) & 1 & -2
-\end{array}  \right] \left\lbrace \begin{array}{c}
+\end{matrix}  \right] \left\lbrace \begin{matrix}
 u \\ 
 v \\ 
 w
-\end{array}  \right\rbrace = -\frac{\omega^2}{\omega_0^2}\left[ \begin{array}{ccc}
+\end{matrix}  \right\rbrace = -\frac{\omega^2}{\omega_0^2}\left[ \begin{matrix}
 1 & 0 & 0 \\ 
 0 & \mu_1 & 0 \\ 
 0 & 0 & \mu_2
-\end{array} \right] \left\lbrace \begin{array}{c}
+\end{matrix} \right] \left\lbrace \begin{matrix}
 u \\ 
 v \\ 
 w
-\end{array} \right\rbrace \enspace , 
+\end{matrix} \right\rbrace \enspace , 
  \end{equation}
 where $\omega_0^2=c/m_1$, $\mu_1 = m_2/m_1$ and $\mu_2=m_3/m_1$. The characteristic polynomial for this system is
 \begin{equation}
@@ -311,6 +494,72 @@ Figure \ref{fig:three-masses} presents some dispersion curves for different mass
         \caption{Dispersion curves for different values of mass ratios $\mu_1, \mu_2$.}\label{fig:three-masses}
 \end{figure}
 
+\subsection{Finite case}
+We can repeat the analysis done for one-mass and two-masses unit cells for the case of three-masses unit cell. In this case, the closed solution for one and two unit cells is not shown since the expression are large compared with the other two cases. Nevertheless, we present the equation form for the $N$ cells case
+\begin{equation}
+  \mathbb{A}\begin{Bmatrix}
+  u_0 \\ 
+  v_0 \\ 
+  w_0 \\ 
+  u_1 \\ 
+  \vdots \\ 
+  u_{N-1} \\ 
+  v_{N-1} \\ 
+  w_{N-1} \\ 
+  u_N
+  \end{Bmatrix} = 
+  \begin{Bmatrix}
+  -\hat{f}_0 \\ 
+  0 \\ 
+  0 \\ 
+  0 \\ 
+  \vdots \\ 
+  0 \\ 
+  0 \\ 
+  0 \\ 
+  0
+\end{Bmatrix} \enspace ,
+\end{equation}
+with
+\[\mathbb{A} = \begin{bmatrix}
+ -1 + \Omega^2 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+ 1 & -2 + \mu_1\Omega^2 & 1 & 0 & \cdots & 0 & 0 & 0 & 0 \\ 
+ 0 & 1 & -2 + \mu_2\Omega^2 & 1 & \cdots & 0 & 0 & 0 & 0 \\ 
+ 0 & 0 & 1 & -2 + \Omega^2 & \cdots & 0 & 0 & 0 & 0 \\ 
+ \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots \\ 
+ 0 & 0 & 0 & 0 & \cdots & -2 + \Omega^2 & 1 & 0 & 0 \\ 
+ 0 & 0 & 0 & 0 & \cdots & 1 & -2 + \mu_1\Omega^2 & 0 & 0 \\ 
+ 0 & 0 & 0 & 0 & \cdots & 0 & 1 & -2 + \mu_2\Omega^2 & 1 \\ 
+ 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 1 & -1 + \Omega^2
+ \end{bmatrix}\]
+ 
+Figure \ref{fig:three-finite} presents the frequency response for this case (computed numerically) for different mass ratios $\mu_1$ and $\mu_2$.
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{three_finite-m1=0.5-m2=3}.pdf}
+                \caption{$\mu_1=1/2$, $\mu_2=3$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{three_finite-m1=0.5-m2=10}.pdf}
+                \caption{$\mu_1=1/2$, $\mu_2=10$.}
+        \end{subfigure}\\
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{three_finite-m1=2-m2=3}.pdf}
+                \caption{$\mu_1=2$, $\mu_2=3$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{three_finite-m1=2-m2=10}.pdf}
+                \caption{$\mu_1=2$, $\mu_2=10$.}
+        \end{subfigure}
+        \caption{Frequency response for a finite mass-spring lattice for unit cell composed of three different masses for different mass ratios.}\label{fig:three-finite}
+\end{figure}
+
+The bandgap regions and cut frequencies are (essentially) the same as those presented in the dispersion relations, Figure \ref{fig:three-masses}.
+
 \section{2D square lattice}
 For the simple cases shown before is easy to formulate the complete balance of forces taking into account the first neighbours. In general is easier to take the unit cell for the lattice and find the resulting system through row and column operations, just as exemplified before. 
 \begin{figure}[h]
@@ -320,7 +569,7 @@ For the simple cases shown before is easy to formulate the complete balance of f
 \end{figure}
 The system of equation in frequency domain is
 \begin{equation}
-c\left[ \begin{array}{cccccccc}
+c\begin{bmatrix}
 -1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ 
 0 & -1 & 0 & 0 & 0 & 0 & 0 & 1 \\ 
 1 & 0 & -1 & 0 & 0 & 0 & 0 & 0 \\ 
@@ -329,7 +578,7 @@ c\left[ \begin{array}{cccccccc}
 0 & 0 & 0 & 1 & 0 & -1 & 0 & 0 \\ 
 0 & 0 & 0 & 0 & 1 & 0 & -1 & 0 \\ 
 0 & 1 & 0 & 0 & 0 & 0 & 0 & -1
-\end{array} \right] \left\lbrace \begin{array}{c}
+\end{bmatrix} \begin{Bmatrix}
 u_1 \\ 
 v_1 \\ 
 u_2 \\ 
@@ -338,8 +587,8 @@ u_3 \\
 v_3 \\ 
 u_4 \\ 
 v_4
-\end{array}  \right\rbrace= -\frac{\omega}{4}m \mathbb{I}_8
-\left\lbrace \begin{array}{c}
+\end{Bmatrix}= -\frac{\omega}{4}m \mathbb{I}_8
+\begin{Bmatrix}
 u_1 \\ 
 v_1 \\ 
 u_2 \\ 
@@ -348,20 +597,20 @@ u_3 \\
 v_3 \\ 
 u_4 \\ 
 v_4
-\end{array}  \right\rbrace \enspace ,
+\end{Bmatrix} \enspace ,
 \end{equation}
 and after applying the row operations for the Bloch-conditions imposition, we get
 \begin{equation}
-\frac{4c}{m}\left[ \begin{array}{cc}
+\frac{4c}{m}\begin{bmatrix}
 1 - \cos(k_x a) & 0 \\ 
 0 & 1-\cos(k_y b)
-\end{array}  \right] \left\lbrace \begin{array}{c}
+\end{bmatrix} \begin{Bmatrix}
 u_1 \\ 
 v_1 
-\end{array}  \right\rbrace = \omega^2 \left\lbrace \begin{array}{c}
+\end{Bmatrix} = \omega^2 \begin{Bmatrix}
 u_1 \\ 
 v_1 
-\end{array}  \right\rbrace .
+\end{Bmatrix} .
 \end{equation}
 Or, equivalently
 \begin{equation}
@@ -385,7 +634,7 @@ In this case we have a rectangular cell with springs with constant $c$ in the si
 The system of equation in frequency domain is
 \begin{equation}
 \mathbb{K}
-\left\lbrace \begin{array}{c}
+\begin{Bmatrix}
 u_1 \\ 
 v_1 \\ 
 u_2 \\ 
@@ -394,8 +643,8 @@ u_3 \\
 v_3 \\ 
 u_4 \\ 
 v_4
-\end{array}  \right\rbrace= -\frac{\omega^2}{4}m \mathbb{I}_8
-\left\lbrace \begin{array}{c}
+\end{Bmatrix} = -\frac{\omega^2}{4}m \mathbb{I}_8
+\begin{Bmatrix}
 u_1 \\ 
 v_1 \\ 
 u_2 \\ 
@@ -404,7 +653,7 @@ u_3 \\
 v_3 \\ 
 u_4 \\ 
 v_4
-\end{array} \right\rbrace
+\end{Bmatrix}
 \end{equation}
 with
 \[\mathbb{K} = \begin{bmatrix}
@@ -461,7 +710,7 @@ In this case we have a rectangular cell with springs with constant $c$ in the si
 \end{figure}
 \begin{equation}
 \mathbb{K}
-\left\lbrace \begin{array}{c}
+\begin{Bmatrix}
 u_1 \\ 
 v_1 \\ 
 u_2 \\ 
@@ -472,8 +721,8 @@ u_4 \\
 v_4 \\
 u_5 \\
 v_5
-\end{array}  \right\rbrace= -\omega^2 \mathbb{M}
-\left\lbrace \begin{array}{c}
+\end{Bmatrix}  = -\omega^2 \mathbb{M}
+\begin{Bmatrix}
 u_1 \\ 
 v_1 \\ 
 u_2 \\ 
@@ -481,10 +730,10 @@ v_2 \\
 u_3 \\ 
 v_3 \\ 
 u_4 \\ 
-v_4
+v_4 \\
 u_5 \\
 v_5
-\end{array} \right\rbrace
+\end{Bmatrix} 
 \end{equation}
 with
 \[\mathbb{K} =\begin{bmatrix}

@@ -1,0 +1,34 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 12.04.0 ] */
+
+/* [wxMaxima: input   start ] */
+uf(N):= block([A1, A2, A3, A4, A5, A6, A7, A7, AB],
+    A1: genmatrix(lambda([i,j], if i=j then -2 else 0), N, N+1),
+    A2: genmatrix(lambda([i,j], if i=j+1 then 1 else 0), N, N+1),
+    A3: genmatrix(lambda([i,j], if i=j-1 then 1 else 0), N, N+1),
+    A4: genmatrix(lambda([i,j], if i=j then \Omega^2 else 0), N, N+1),
+    A5: genmatrix(lambda([i,j], if i=1 and j=1 then 1 else 0), N, N+1),
+    A6: genmatrix(lambda([i,j], if i=N and j=N then 1 else 0), N, N+1),
+    A7: genmatrix(lambda([i,j], if i=1 and j=N+1 then -1 else 0), N, N+1),
+    A8: genmatrix(lambda([i,j], if i=N and j=N+1 then -1 else 0), N, N+1),
+    A: A1 + A2 + A3 + A4 + A5 + A6 + A7 + A8,
+    B:echelon(A),
+    uf: B[N,N+1]
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+Nvals: [1,5,10,50,100];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ulist:makelist(uf(Nvals[k]), k, 1, 5)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d(log(ulist), [Omega,0.1,5], [y, -12,10], [legend,Nvals], [nticks,1000])$
+/* [wxMaxima: input   end   ] */
+
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
