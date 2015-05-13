@@ -13,6 +13,8 @@ depends([x,y,u,v], t);
 Equations of motion
    [wxMaxima: section end   ] */
 
+/* [wxMaxima: fold    start ] */
+
 /* [wxMaxima: comment start ]
 The kinetic energy has the form
    [wxMaxima: comment end   ] */
@@ -84,6 +86,8 @@ K;
 /* [wxMaxima: input   start ] */
 M;
 /* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: fold    end   ] */
 
 /* [wxMaxima: section start ]
 
@@ -211,6 +215,10 @@ eigenvectors(Keff*omega^2)[2];
 
 /* [wxMaxima: input   start ] */
 plot3d(sqrt(aux2), [kx,-%pi,%pi], [ky,-%pi,%pi], [grid,100,100])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+omega: sqrt(omega_1 + omega_2);
 /* [wxMaxima: input   end   ] */
 
 /* Maxima can't load/batch files which end with a comment! */

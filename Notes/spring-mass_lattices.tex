@@ -41,24 +41,24 @@ So (\ref{eq:single-spring-lattice}) is now
 \[ -m \omega^2 u_s = c (u_s \exp(ika) + u_s \exp(-ika) - 2u_s) \]
 and canceling $u_s$ from both sides, we have
 \[ \omega^2 m = -c[ \exp(ika) + \exp(-ika) - 2 ] \enspace .\]
-Using the identity $2\cos ka = \exp(ika) + \exp(-ika)$, we have the dispersion relation
+Using the identity $2\cos ka = \exp(ika) + \exp(-ika)$, and taking $\Omega^2 = \omega^2/\omega_0^2 = \omega^2 m/c$, we have the dispersion relation
 \begin{equation}
-\omega^2 = (2c/m) (1-\cos ka) \enspace .
+\Omega^2 = 2 (1-\cos ka) \enspace .
 \label{eq:simple-disp-relation}
 \end{equation}
-The boundary of the first Brillouin zone lies at $k=\pm \pi/a$. We show from (\ref{eq:simple-disp-relation}) that the slope of $\omega$ versus $k$ is zero at the zone boundary
-\[ \frac{d\omega^2}{dk} = (2ca/m)\sin ka=0\]
-at $k=\pm \pi/a$, $\sin ka = 0$.
+The boundary of the first Brillouin zone lies at $k=\pm \pi/a$. We show from (\ref{eq:simple-disp-relation}) that the slope of $\Omega$ versus $ka$ is zero at the zone boundary
+\[ \frac{d\Omega^2}{d\, ka} = 2\sin ka=0\]
+at $ka=\pm \pi$, $\sin ka = 0$.
 
 By a trigonometric identity (\ref{eq:single-spring-lattice}) may be written as
 \begin{equation}
-\omega^2 = (4c/m) \sin^2 \frac{1}{2}ka, \qquad \omega = (4c/m)^{1/2}\left\vert \sin \frac{1}{2} ka\right\vert \enspace .
+\Omega^2 = 4 \sin^2 \frac{1}{2}ka, \qquad \omega = 2\left\vert \sin \frac{1}{2} ka\right\vert \enspace .
 \end{equation}
 
 \begin{figure}[h]
 \centering
 \includegraphics[height=8cm]{img/spring-mass-plot.pdf} 
-\caption{Plot of $\omega$ versus $k$. The region of $k<<1/a$ or $\lambda>>a$ corresponds to the continuum approximation; where $\omega$ is directly proportional to k. The First Brillouin Zone is placed between $-\pi/a$ and $\pi/a$.}
+\caption{Plot of $\Omega$ versus $ka$. The region of $ka<<1$ or $\lambda/a>>1$ corresponds to the continuum approximation; where $\Omega$ is directly proportional to $ka$ (and is enclosed between the dashed lines). The First Brillouin Zone is placed between $-1$ and $1$.}
 \label{fig:spring-mass-dispersion}
 \end{figure}
 
@@ -68,7 +68,7 @@ This problem could also be solved taking a single cell and imposing the Bloch co
 c(u_2 - u_1) &= -\frac{m}{2} \omega^2 u_1 \enspace ,\\
 c(u_1 - u_2) &= -\frac{m}{2} \omega^2 u_2 \enspace ,
 \end{align*}
-we should take care since the total amount of mass in the cell should be consistent. That's why we choose each particle to have $m/2$. And this system could be expressed as
+we should take care since the total amount of mass in the cell should be consistent. That is why we choose each particle to have $m/2$. And this system could be expressed as
 \begin{equation}
 c\begin{bmatrix}
 -1 & 1 \\ 
@@ -80,37 +80,52 @@ c\begin{bmatrix}
 0 & 1
 \end{bmatrix} \left\lbrace \mathbf{u} \right\rbrace \enspace ,
 \end{equation}
+or, using $\Omega^2 = \omega^2 m/c$
 multiplying the second row by $\exp(-ika)$ and the second column by its complex conjugate $\exp(ika)$ we get
 \begin{equation*}
-c\begin{bmatrix}
+\begin{bmatrix}
 -1 & e^{ika} \\ 
 e^{-ika} & -1
 \end{bmatrix} \left\lbrace \mathbf{u} \right\rbrace =
--\frac{m\omega^2}{2}\begin{bmatrix}
+-\frac{\Omega^2}{2}\begin{bmatrix}
 1 & 0 \\ 
 0 & 1
 \end{bmatrix} \left\lbrace \mathbf{u} \right\rbrace \enspace ,
 \end{equation*}
 adding the second row to first one, and then adding the second column to first one yields
 \begin{equation*}
-c\begin{bmatrix}
+\begin{bmatrix}
 e^{ika}+e^{-ika}-2 & e^{ika}-1 \\ 
 e^{-ika}-1 & -1
 \end{bmatrix} \left\lbrace \mathbf{u} \right\rbrace =
--\frac{m\omega^2}{2}\begin{bmatrix}
+-\frac{\Omega^2}{2}\begin{bmatrix}
 2 & 1 \\ 
 1 & 1
 \end{bmatrix} \left\lbrace \mathbf{u} \right\rbrace \enspace .
 \end{equation*}
 Now, were interested just in the reduced system, we delete the second row and column and get
 \begin{equation}
-\frac{c}{m}\left[ e^{ika}+e^{-ika}-2 \right] = -\omega^2 \enspace ,
+\left[ e^{ika}+e^{-ika}-2 \right] = -\Omega^2 \enspace ,
 \end{equation}
 and this could be rewritten as
 \begin{equation}
-\omega = (4c/m)^{1/2}\left\vert \sin \frac{1}{2} ka\right\vert \enspace ,
+\Omega = 2\left\vert \sin \frac{1}{2} ka\right\vert \enspace ,
 \end{equation}
 which is the same result obtained before.
+
+The phase speed is
+\[v_p = \frac{\Omega}{ka} = \frac{2}{ka}\left\vert \sin \frac{1}{2} ka\right\vert \enspace ,\]
+and the group speed
+\[v_g \equiv \nabla_{ka}\Omega = \frac{d\Omega}{d\, ka} = \cos \left(\frac{1}{2} ka\right) \text{sign}\left[\sin \frac{1}{2} ka\right] \]
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=8cm]{img/spring-mass-speeds.pdf} 
+\caption{Plot of speed versus $ka$. The initial value is 1 and the approximation around 0 is constant speed.}
+\label{fig:spring-mass-speed}
+\end{figure}
+
+
 
 \subsection{Finite case}
 \begin{figure}[h]
@@ -141,7 +156,7 @@ u_1
 \end{Bmatrix} \enspace , 
 \label{eq:1_cell_finite}
 \end{equation}
-where we normalized the equation.  $\Omega^2 = \omega^2/\omega_0^2 = \omega^2/(c/m)$ and $\hat{f}_0 = f_0/c$. And the solutions for this system of equations is
+where we normalized the equation.  $\Omega^2 = \omega^2/\omega_0^2 = \omega^2 m/c$ and $\hat{f}_0 = f_0/c$. And the solutions for this system of equations is
 \begin{align*}
 u_0 &= \frac{\hat{f}_0(1 - \Omega^2)}{\Omega^2(\Omega^2 - 2)}\\
 u_1 &= \frac{\hat{f}_0}{\Omega^2(\Omega^2 - 2)} \enspace .
@@ -428,7 +443,8 @@ One more time, the matrix present a structure and it might be  possible that the
 \begin{figure}[h]
 \centering
 \includegraphics[height=8cm]{img/diatomic_finite.pdf} 
-\caption{Frequency response for a finite mass-spring lattice for unit cell composed of two different masses.}\label{fig:diatomic-finite}
+\caption{Frequency response for a finite mass-spring lattice for unit cell composed of two different masses.}
+\label{fig:diatomic-finite-disp}
 \end{figure}
 
 We can see that for $N$ big enough there is not propagation for frequencies in the interval $\Omega \in [\sqrt{2/\mu}, \sqrt{2/\mu}]$, and for $\Omega > \sqrt{\frac{2}{\mu}(1 + \mu)}$, 
