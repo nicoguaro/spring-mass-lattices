@@ -37,7 +37,7 @@ def disp_rel(kx_vec, ky_vec, w1, w2, wd):
 m = 1.  # Mass
 c1 = 1.  # Horizontal spring
 c2 = 1.  # Vertical spring
-cd =  np.sqrt(2)/2 # Diagonal spring
+cd =  1. # Diagonal spring
 w1 = np.sqrt(c1/m)
 w2 = np.sqrt(c2/m)
 wd = np.sqrt(cd/m)
@@ -45,14 +45,34 @@ wd = np.sqrt(cd/m)
 kx_vec, ky_vec = np.mgrid[-np.pi: np.pi: 201j, -np.pi: np.pi: 201j]
 omega = disp_rel(kx_vec, ky_vec, w1, w2, wd)
 omega = np.abs(omega)
+omega = np.sqrt(omega[0,:,:] + omega[1,:,:])
 
 plt.close('all')
 plt.figure()
-plt.contourf(kx_vec, ky_vec, np.sqrt(omega[0,:,:] + omega[1,:,:]), cmap='hot')
+plt.contourf(kx_vec, ky_vec, omega, cmap='hot')
 plt.colorbar()
-plt.contour(kx_vec, ky_vec, np.sqrt(omega[0,:,:] + omega[1,:,:]), colors='k')
+plt.contour(kx_vec, ky_vec, omega, colors='k')
 plt.axis('image')
 plt.xlabel(r"$k_x a/\pi$", size=18)
 plt.ylabel(r"$k_y a/\pi$", size=18)
 plt.savefig("Notes/img/square-diag-cd=%g.pdf"%cd, bbox="tight")
+
+
+#%% Plot in the contour of the irreducible Brillouin zone
+plt.figure()
+k = np.sqrt(kx_vec**2 + ky_vec**2)
+xaxis = range(0,301)
+# Vertical lines
+ymax = 14
+plt.plot([0,0], [0,ymax], 'gray')
+plt.plot([100,100], [0,ymax], 'gray')
+plt.plot([200,200], [0,ymax], 'gray')
+# Parts of the plot
+plt.plot(xaxis[0:101], omega[100::,100], 'k', lw=2)
+plt.plot(xaxis[100:201], omega[-1,100::], 'k', lw=2)
+plt.plot(xaxis[200:301], omega.diagonal()[0:101], 'k', lw=2)
+plt.xticks([0, 100, 200, 300], [r"$\Gamma$", r"$X$", r"$M$", r"$\Gamma$"])
+plt.savefig("Notes/img/square-diag-irreducible-cd=%g.pdf"%cd, bbox="tight")
+plt.ylim(0, ymax)
+
 plt.show()

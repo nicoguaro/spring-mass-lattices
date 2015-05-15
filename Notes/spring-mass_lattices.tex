@@ -639,6 +639,17 @@ Figure \ref{fig:square-disp} shows the dispersion relation for this problem.
 \caption{Dispersion relations--shown as isofrequency contours.}\label{fig:square-disp}
 \end{figure}
 
+It is customary to plot the dispersion relations over the irreducible Brillouin zone, this is depicted in Figure \ref{fig:square-disp-irreducible} for the square lattice.
+\begin{figure}[h]
+\centering
+\includegraphics[height=7cm]{img/square-disp-irreducible.pdf} 
+\caption{Dispersion relations over the irreducible Brillouin zone}
+\label{fig:square-disp-irreducible}
+\end{figure}
+
+
+
+
 \section{2D rectangular lattice with diagonal springs}
 In this case we have a rectangular cell with springs with constant $c$ in the sides. We added diagonal springs with constants $c_d$ (see Figure \ref{fig:square-diag}). It should be noted that the value $c_d$ is the \emph{effective} spring in the $x$ and $y$ directions --they are the same for a square lattice, in the case of $a\neq b$ the constants should vary.
 \begin{figure}[h]
@@ -715,6 +726,33 @@ We recover the square lattice (without diagonals) making $c_d=0$. The dispersion
                 \caption{$c_d/c = 10$ and $a=b$.}
         \end{subfigure}
         \caption{Dispersion curves for different values of spring ratios $c_d/c$.}\label{fig:square-diag-disp}
+\end{figure}
+
+
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-diag-irreducible-cd=0.1}.pdf}
+                \caption{$c_d/c = 0.1$ and $a=b$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-diag-irreducible-cd=0.707107}.pdf}
+                \caption{$c_d/c = \sqrt{2}/2$ and $a=b$.}
+        \end{subfigure}\\
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-diag-irreducible-cd=1}.pdf}
+                \caption{$c_d/c = 1$ and $a=b$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-diag-irreducible-cd=10}.pdf}
+                \caption{$c_d/c = 10$ and $a=b$.}
+        \end{subfigure}
+        \caption{Dispersion curves for different values of spring ratios $c_d/c$.}
+        \label{fig:square-diag-disp-irreducible}
 \end{figure}
 
 \section{2D square lattice with body mass and diagonal springs}
@@ -826,7 +864,7 @@ Figure \ref{fig:square-bcc-disp1} shows the first branch of the dispersion curve
 %
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=\textwidth]{img/{square-bcc-disp1-c=1-m=10}.pdf}
-                \caption{$c_d/c = 0.1$, $m_2/m_1=10$ and $a=b$.}
+                \caption{$c_d/c = 1$, $m_2/m_1=10$ and $a=b$.}
         \end{subfigure}
         \caption{First branch of the dispersion curves.}\label{fig:square-bcc-disp1}
 \end{figure}
@@ -851,9 +889,34 @@ Figure \ref{fig:square-bcc-disp2} shows the second branch of the dispersion curv
 %
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=\textwidth]{img/{square-bcc-disp2-c=1-m=10}.pdf}
-                \caption{$c_d/c = 0.1$, $m_2/m_1=10$ and $a=b$.}
+                \caption{$c_d/c = 1$, $m_2/m_1=10$ and $a=b$.}
         \end{subfigure}
         \caption{Second branch of the dispersion curves.}\label{fig:square-bcc-disp2}
+\end{figure}
+
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-bcc-irreducible-c=0.1-m=1}.pdf}
+                \caption{$c_d/c = 0.1$, $m_2/m_1=1$ and $a=b$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-bcc-irreducible-c=10-m=1}.pdf}
+                \caption{$c_d/c = 10$, $m_2/m_1=1$ and $a=b$.}
+        \end{subfigure}\\
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-bcc-irreducible-c=1-m=0.1}.pdf}
+                \caption{$c_d/c = 1$, $m_2/m_1=0.1$ and $a=b$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/{square-bcc-irreducible-c=1-m=10}.pdf}
+                \caption{$c_d/c = 1$, $m_2/m_1=10$ and $a=b$.}
+        \end{subfigure}
+        \caption{Second branch of the dispersion curves.}\label{fig:square-bcc-disp-irreducible}
 \end{figure}
 
 \end{document}
