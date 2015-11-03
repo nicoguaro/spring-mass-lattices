@@ -2,12 +2,44 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amsfonts, amssymb}
 \usepackage{graphicx}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
-\usepackage[margin=20pt,font=small,labelfont=bf,labelsep=period]{caption}
+\usepackage{geometry}
+\usepackage{caption}
 \usepackage{subcaption}
-\usepackage[pdftex, pdftitle={Dispersion spring-mass lattices}, pdfauthor={Nicolas Guarin-Zapata}, pdfsubject={Dispersion in lattices}, pdfkeywords={Dispersion, Phononic crystals, Vibrations, Wave propagation}, pdfpagemode=UseOutlines,bookmarks,bookmarksopen,pdfstartview=FitH,colorlinks,linkcolor=blue, urlcolor=black, citecolor=blue]{hyperref}
+\usepackage{hyperref}
 
+%% Packages setup
+\geometry{
+	verbose,
+	letterpaper,
+	tmargin=2cm,
+	bmargin=2cm,
+	lmargin=2cm,
+	rmargin=2cm
+    }
 
+\hypersetup{
+	bookmarksopen=true,
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,
+	urlcolor=black,	
+	linktoc=all,
+	pdftitle={Dispersion in spring-mass lattices},
+	pdfauthor={N. Guarin-Zapata},
+	pdfkeywords={Dispersion, Phononic crystals, Vibrations, Wave propagation},
+	pdfsubject={Dispersion in lattices},
+	pdfpagemode=UseOutlines,
+	pdfstartview=FitH
+    }
+
+\captionsetup{
+    margin=20pt,
+    font=small,
+    labelfont=bf,
+    labelsep=period
+    }
+
+%%
 \author{Nicol\'as Guar\'in Zapata}
 \title{\textbf{Dispersion relations for spring-mass lattices}}
 \begin{document}
