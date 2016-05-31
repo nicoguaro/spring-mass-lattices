@@ -1,5 +1,5 @@
 /* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
-/* [ Created with wxMaxima version 12.04.0 ] */
+/* [ Created with wxMaxima version 13.04.2 ] */
 
 /* [wxMaxima: input   start ] */
 kill(all);
@@ -10,13 +10,13 @@ depends([x,y,u,v], t);
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
-    O----O
+    6----1
    /      \
   /        \
- O          O
+ 5          2
   \        /
    \      /
-    O----O
+    4----3
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: section start ]
@@ -61,7 +61,7 @@ V[5]: 1/2*cx*(x[4] - x[5])**2 + 1/2*cx*(x[6] - x[5])**2 +  1/2*cy*(y[4] - y[5])*
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-V[6]:  1/2*cx*(x[2] - x[1])**2 + 1/2*c*(x[6] - x[1])**2 +  1/2*cy*(y[2] - y[1])**2;
+V[6]:  1/2*cx*(x[5] - x[6])**2 + 1/2*c*(x[6] - x[1])**2 +  1/2*cy*(y[5] - y[6])**2;
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
@@ -186,14 +186,8 @@ Keff:invert(M3/omega^2).(K4)/c*m,expand;
 
 /* [wxMaxima: comment start ]
 We can make some substitutions
-    km = 1/2*(sqrt(3)*ky - kx)
-    kp = 1/2*(sqrt(3)*ky + kx)
-    skx = sin(kx)
-    skp = sin(kp)
-    skm = sin(km)
-    ckx = cos(kx)
-    ckp = cos(kp)
-    ckm = cos(km)
+
+ckm = cos(km)
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
@@ -212,6 +206,10 @@ evals:eigenvalues(Keff)[1]$
 /* [wxMaxima: input   start ] */
 subst([(sqrt(3)*a*ky+a*kx)/2=kp, (sqrt(3)*a*ky-a*kx)/2=km, a=1],evals)$
 subst([sin(kp)=skp,sin(km)=skm, cos(kp)=ckp, cos(km)=ckm,cos(kx)=ckx, sin(kx)=skx],%),ratsimp;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+evals;
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -239,14 +237,14 @@ w_hi: sqrt(wlin3 + wlin4);
 
 /* [wxMaxima: input   start ] */
 plot3d(subst([a=1,c=1,m=1],w_low), [kx,-%pi,%pi], [ky,-%pi,%pi],[legend,false],
-       [colorbox, true], [gnuplot_preamble, "set cntrparam levels 10"],
-       [grid,201,201]);
+       [gnuplot_preamble, "set cntrparam levels 10"],
+       [grid,51,51]);
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
 plot3d(subst([a=1,c=1,m=1],w_hi), [kx,-%pi,%pi], [ky,-%pi,%pi],[legend,false],
-       [colorbox, true], [gnuplot_preamble, "set cntrparam levels 10"],
-       [grid,201,201]);
+       [gnuplot_preamble, "set cntrparam levels 10"],
+       [grid,51,51]);
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -256,15 +254,15 @@ plot3d(subst([a=1,c=1,m=1],w_hi), [kx,-%pi,%pi], [ky,-%pi,%pi],[legend,false],
 /* [wxMaxima: input   start ] */
 plot3d(subst([a=1,c=1,m=1],sqrt(evals[1] + evals[3])), [kx,-%pi,%pi],
        [ky,-%pi,%pi],[legend,false],
-       [colorbox, true], [gnuplot_preamble, "set cntrparam levels 10"],
-       [grid,201,201]);
+       [gnuplot_preamble, "set cntrparam levels 10"],
+       [grid,51,51]);
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
 plot3d(subst([a=1,c=1,m=1],sqrt(evals[2] + evals[4])), [kx,-%pi,%pi],
        [ky,-%pi,%pi],[legend,false],
-       [colorbox, true], [gnuplot_preamble, "set cntrparam levels 10"],
-       [grid,201,201]);
+       [gnuplot_preamble, "set cntrparam levels 10"],
+       [grid,51,51]);
 /* [wxMaxima: input   end   ] */
 
 /* Maxima can't load/batch files which end with a comment! */

@@ -14,9 +14,9 @@ import matplotlib.pyplot as plt
 from scipy import sparse
 from scipy.sparse.linalg import dsolve
 from matplotlib import rcParams
- 
+
 rcParams['font.family'] = 'serif'
-rcParams['font.size'] = 16 
+rcParams['font.size'] = 8
 
 
 def n_springs(N, mu, f_vec):
@@ -35,34 +35,35 @@ def n_springs(N, mu, f_vec):
         d_main[1:-1:2] = -2. + mu*freq**2
         d_main[2:-1:2] = -2. + freq**2
         d_main[0] = -1.0 + freq**2
-        d_main[-1] = -1.0  + freq**2 
+        d_main[-1] = -1.0  + freq**2
         d_low = np.ones(2*N + 1)
         data = [d_low, d_main, d_low]
-        diags = [-1,0,1]   
+        diags = [-1,0,1]
         A = sparse.spdiags(data, diags, 2*N+1, 2*N+1, format='csc')
 
-        
+
         x = dsolve.spsolve(A, force)
         uf_ratio[k] = x[-1]
-         
-     
+
+
     return uf_ratio
-    
+
 N_vec = [1, 5, 10, 50]
 npts = 10000
 mu = 2.
 f_vec = np.linspace(1e-3, 2.5, npts)
+plt.figure(figsize=(4, 2.2))
 for N in N_vec:
     uf_ratio = n_springs(N, mu, f_vec)
     plt.semilogy(f_vec, abs(uf_ratio), label="N=%i"%N)
- 
+
 plt.ylim(1e-9, 1e3)
 plt.yticks(np.logspace(-9, 3, 5))
 plt.grid(True, color="gray", alpha=0.3)
-plt.xlabel(r"$\Omega$", size=18)
-plt.ylabel(r"$u_N/\hat{f}_0$", size=18)
-plt.legend(loc="best")
+plt.xlabel(r"$\Omega$")
+plt.ylabel(r"$u_N/\hat{f}_0$")
+plt.legend(loc="best", fontsize=8)
 plt.savefig("Notes/img/diatomic_finite.svg")
-plt.savefig("Notes/img/diatomic_finite.pdf", bbox="tight")
+plt.savefig("Notes/img/diatomic_finite.pdf", bbox_inches="tight")
 
 plt.show()

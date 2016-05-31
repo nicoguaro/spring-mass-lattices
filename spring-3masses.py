@@ -12,7 +12,6 @@ The parameters are:
       omega_0**2 = c/m1.
 
 @author: Nicolas Guarin-Zapata
-@date: October 9, 2014
 """
 import numpy as np
 import scipy.linalg as LA
@@ -20,7 +19,7 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 
 rcParams['font.family'] = 'serif'
-rcParams['font.size'] = 16
+rcParams['font.size'] = 8
 
 def disp_rel(kvec, mu_1, mu_2):
     n = kvec.shape[0]
@@ -34,19 +33,22 @@ def disp_rel(kvec, mu_1, mu_2):
                       [0., 0., mu_2]])
         vals = LA.eigvalsh(-K, -M)
         omega[:,j] = vals
-        
+
     return omega
 
-mu_1 = 2.
-mu_2 = 10.
+mu_1 = 0.5
+mu_2 = 3
 kvec = np.linspace(0, np.pi, 501)
 omega = np.sqrt(disp_rel(kvec, mu_1, mu_2))
 
-plt.figure()
+plt.figure(figsize=(3, 1.9))
 plt.plot(kvec/np.pi, omega[0,:])
 plt.plot(kvec/np.pi, omega[1,:])
 plt.plot(kvec/np.pi, omega[2,:])
-plt.xlabel(r"$ka/\pi$", size=18)
-plt.ylabel(r"$\omega/\omega_0$", size=18)
-plt.ylim(0,2.5)
+plt.xlabel(r"$ka/\pi$")
+plt.ylabel(r"$\Omega$")
+plt.ylim(0, 2.5)
+
+plt.savefig("Notes/img/spring_masses-3-m1=%g-m2=%g.pdf"%(mu_1, mu_2),
+            bbox_inches="tight")
 plt.show()

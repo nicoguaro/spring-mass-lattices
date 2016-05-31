@@ -162,7 +162,7 @@ and the group speed
 \subsection{Finite case}
 \begin{figure}[h]
 \centering
-\includegraphics[height=1.8cm]{img/spring-mass-finite.pdf} 
+\includegraphics[width=4in]{img/spring-mass-finite.pdf} 
 \caption{Finite simple mass-spring lattice.}\label{fig:spring-mass-finite}
 \end{figure}
 In practice, we cannot have infinite (periodic) repetition of unit cells, and, at some point, we need to truncate them to make them finite (Figure \ref{fig:spring-mass-finite}). When the number of unit cells increase, the behavior should get closer to the infinite case, and the presence of bandgaps could be inferred from the analysis of the response in frequency.
@@ -329,7 +329,7 @@ At $k_{max}=\pm\pi/a$ the roots are
 \subsection{Finite case}
 \begin{figure}[h]
 \centering
-\includegraphics[height=2.5cm]{img/diatomic-finite.pdf} 
+\includegraphics[width=4in]{img/diatomic-finite.pdf} 
 \caption{Finite \emph{lattice} made with spring and two species of masses.}
 \label{fig:diatomic-finite}
 \end{figure}
@@ -585,22 +585,22 @@ Figure \ref{fig:three-finite} presents the frequency response for this case (com
 \begin{figure}[h]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
-                \includegraphics[width=\textwidth]{img/{three_finite-m1=0.5-m2=3}.pdf}
+                \includegraphics[width=3in]{img/{three_finite-m1=0.5-m2=3}.pdf}
                 \caption{$\mu_1=1/2$, $\mu_2=3$.}
         \end{subfigure}\,
 %
         \begin{subfigure}[b]{0.49\textwidth}
-                \includegraphics[width=\textwidth]{img/{three_finite-m1=0.5-m2=10}.pdf}
+                \includegraphics[width=3in]{img/{three_finite-m1=0.5-m2=10}.pdf}
                 \caption{$\mu_1=1/2$, $\mu_2=10$.}
         \end{subfigure}\\
 %
         \begin{subfigure}[b]{0.49\textwidth}
-                \includegraphics[width=\textwidth]{img/{three_finite-m1=2-m2=3}.pdf}
+                \includegraphics[width=3in]{img/{three_finite-m1=2-m2=3}.pdf}
                 \caption{$\mu_1=2$, $\mu_2=3$.}
         \end{subfigure}\,
 %
         \begin{subfigure}[b]{0.49\textwidth}
-                \includegraphics[width=\textwidth]{img/{three_finite-m1=2-m2=10}.pdf}
+                \includegraphics[width=3in]{img/{three_finite-m1=2-m2=10}.pdf}
                 \caption{$\mu_1=2$, $\mu_2=10$.}
         \end{subfigure}
         \caption{Frequency response for a finite mass-spring lattice for unit cell composed of three different masses for different mass ratios.}\label{fig:three-finite}
@@ -667,14 +667,14 @@ Or, equivalently
 Figure \ref{fig:square-disp} shows the dispersion relation for this problem.
 \begin{figure}[h]
 \centering
-\includegraphics[height=8cm]{img/square-disp.pdf} 
+\includegraphics[width=4in]{img/square-disp.pdf} 
 \caption{Dispersion relations--shown as isofrequency contours.}\label{fig:square-disp}
 \end{figure}
 
 It is customary to plot the dispersion relations over the irreducible Brillouin zone, this is depicted in Figure \ref{fig:square-disp-irreducible} for the square lattice.
 \begin{figure}[h]
 \centering
-\includegraphics[height=7cm]{img/square-disp-irreducible.pdf} 
+\includegraphics[width=4in]{img/square-disp-irreducible.pdf} 
 \caption{Dispersion relations over the irreducible Brillouin zone}
 \label{fig:square-disp-irreducible}
 \end{figure}
@@ -930,25 +930,121 @@ Figure \ref{fig:square-bcc-disp2} shows the second branch of the dispersion curv
 \begin{figure}[h]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
-                \includegraphics[width=\textwidth]{img/{square-bcc-irreducible-c=0.1-m=1}.pdf}
+                \includegraphics[width=3in]{img/{square-bcc-irreducible-c=0.1-m=1}.pdf}
                 \caption{$c_d/c = 0.1$, $m_2/m_1=1$ and $a=b$.}
         \end{subfigure}\,
 %
         \begin{subfigure}[b]{0.49\textwidth}
-                \includegraphics[width=\textwidth]{img/{square-bcc-irreducible-c=10-m=1}.pdf}
+                \includegraphics[width=3in]{img/{square-bcc-irreducible-c=10-m=1}.pdf}
                 \caption{$c_d/c = 10$, $m_2/m_1=1$ and $a=b$.}
         \end{subfigure}\\
 %
         \begin{subfigure}[b]{0.49\textwidth}
-                \includegraphics[width=\textwidth]{img/{square-bcc-irreducible-c=1-m=0.1}.pdf}
+                \includegraphics[width=3in]{img/{square-bcc-irreducible-c=1-m=0.1}.pdf}
                 \caption{$c_d/c = 1$, $m_2/m_1=0.1$ and $a=b$.}
         \end{subfigure}\,
 %
         \begin{subfigure}[b]{0.49\textwidth}
-                \includegraphics[width=\textwidth]{img/{square-bcc-irreducible-c=1-m=10}.pdf}
+                \includegraphics[width=3in]{img/{square-bcc-irreducible-c=1-m=10}.pdf}
                 \caption{$c_d/c = 1$, $m_2/m_1=10$ and $a=b$.}
         \end{subfigure}
-        \caption{Second branch of the dispersion curves.}\label{fig:square-bcc-disp-irreducible}
+        \caption{Dispersion curves over the irreducible Brillouin zone.}\label{fig:square-bcc-disp-irreducible}
+\end{figure}
+
+
+\section{Hexagonal Lattice}
+In this case we have an hexagonal cell with springs with constant $c$ in the sides (see Figure \ref{fig:hexagon}). 
+\begin{figure}[h]
+\centering
+\includegraphics[height=5cm]{img/spring-hexagon.pdf} 
+\caption{Unit cell for a two dimensional hexagonal lattice with a unique species in the corners.}\label{fig:hexagon}
+\end{figure}
+The system of equations to solve is one more time
+\begin{equation}
+\mathbb{K}
+\begin{Bmatrix}
+u_1 \\ 
+v_1 \\ 
+u_2 \\ 
+v_2 \\ 
+u_3 \\ 
+v_3 \\ 
+u_4 \\ 
+v_4 \\
+u_5 \\
+v_5 \\
+u_6 \\
+v_6
+\end{Bmatrix}  = -\omega^2 \mathbb{M}
+\begin{Bmatrix}
+u_1 \\ 
+v_1 \\ 
+u_2 \\ 
+v_2 \\ 
+u_3 \\ 
+v_3 \\ 
+u_4 \\ 
+v_4 \\
+u_5 \\
+v_5 \\
+u_6 \\
+v_6
+\end{Bmatrix} 
+\end{equation}
+with 
+\setcounter{MaxMatrixCols}{12}
+\[\mathbb{K} = \frac{c}{2}\begin{bmatrix}-3 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 0\cr
+0 & -\sqrt{3} & 0 & \sqrt{3} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\cr
+1 & 0 & -2 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\cr
+0 & \sqrt{3} & 0 & -2\,\sqrt{3} & 0 & \sqrt{3} & 0 & 0 & 0 & 0 & 0 & 0\cr
+0 & 0 & 1 & 0 & -3 & 0 & 2 & 0 & 0 & 0 & 0 & 0\cr
+0 & 0 & 0 & \sqrt{3} & 0 & -\sqrt{3} & 0 & 0 & 0 & 0 & 0 & 0\cr
+0 & 0 & 0 & 0 & 2 & 0 & -3 & 0 & 1 & 0 & 0 & 0\cr
+0 & 0 & 0 & 0 & 0 & 0 & 0 & -\sqrt{3} & 0 & \sqrt{3} & 0 & 0\cr
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & -2 & 0 & 1 & 0\cr
+0 & 0 & 0 & 0 & 0 & 0 & 0 & \sqrt{3} & 0 & -2\,\sqrt{3} & 0 & \sqrt{3}\cr
+2 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & -3 & 0\cr
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \sqrt{3} & 0 & -\sqrt{3}
+\end{bmatrix}\]
+and
+\[\mathbb{M} = \frac{m}{3}\mathbb{I}_{12} \enspace .  \]
+
+After applying the Bloch theorem we obtain (showing just the lower diagonal due to the Hermiticity)
+\[\mathbb{K}_R = c\begin{bmatrix}
+-4 & \bullet & \bullet  & \bullet\cr
+0 & -2\sqrt{3} & \bullet & \bullet\cr
+e^{\frac{\sqrt{3}\,i k_y a}{2}-\frac{i k_x a}{2}}+e^{-\frac{\sqrt{3}\,i k_y a}{2}-\frac{i k_x a}{2}}+2\,e^{i k_x a}  & 0 & -4 & \bullet\cr
+0 & e^{\frac{\sqrt{3}ik_y a}{2}-\frac{ik_x a}{2}}+e^{-\frac{\sqrt{3}ik_y a}{2}-\frac{ik_x a}{2}} & 0 & -2\sqrt{3}
+\end{bmatrix}\]
+and
+\[\mathbb{M}_R = m \mathbb{I}_4 .\]
+
+The eigenvalues for this problem are lengthy, but a second order expansion around $(k_x,k_y)=(0,0)$ (linear in the case of its square root) is shown
+\begin{align*}
+&\frac{\omega_1^2}{\omega_0^2} =\frac{{3}^{\frac{3}{2}}\,k_y a^{2}}{4}\\
+&\frac{\omega_2^2}{\omega_0^2} =\frac{6\,k_y a^{2}+9\,k_x a^{2}}{8}\\
+&\frac{\omega_3^2}{\omega_0^2}=-\frac{{3}^{\frac{3}{2}}\,k_y a^{2}-16\,\sqrt{3}}{4}\\
+&\frac{\omega_4^2}{\omega_0^2} =-\frac{6\,k_y a^{2}+9\,k_x a^{2}-64}{8} \enspace ,
+\end{align*}
+with $\omega_0^2 = c/m$.
+
+Figure \ref{fig:hexagon-disp} shows the dispersion modes for ratios $m_2/m_1=1$ and $c_d/c_s=1$.
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/hexagon-disp1.pdf}\caption{First branch.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{img/hexagon-disp2.pdf}\caption{Second branch.}
+         \end{subfigure}
+ \caption{Dispersion relations for the hexagonal unit cell.}\label{fig:hexagon-disp}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=4in]{img/{hexagon-irreducible}.pdf}
+  \caption{Dispersion curves over the irreducible Brillouin zone.}\label{fig:hexagon-irreducible}
 \end{figure}
 
 \end{document}
