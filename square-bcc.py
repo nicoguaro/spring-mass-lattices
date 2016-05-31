@@ -53,7 +53,7 @@ cs + 2*cd*m2 + 2*cd*m1)/(m1*m2)
 m1 = 1.
 m2 = 1.
 cs = 1.
-cd = 1.
+cd = .1
 kx_vec, ky_vec = np.mgrid[-np.pi: np.pi: 201j, -np.pi: np.pi: 201j]
 omega = disp_rel(kx_vec, ky_vec, m1, m2, cd, cs)
 omega = np.abs(omega)
@@ -79,8 +79,8 @@ plt.contour(kx_vec/pi, ky_vec/pi, omega2, colors='k')
 plt.axis('image')
 plt.xlabel(r"$k_x a/\pi$")
 plt.ylabel(r"$k_y a/\pi$")
-plt.savefig("Notes/img/square-bcc-disp2-c=%g-m=%g.pdf"%(cd/cs, m2/m1),
-            bbox_inches="tight")
+#plt.savefig("Notes/img/square-bcc-disp2-c=%g-m=%g.pdf"%(cd/cs, m2/m1),
+#            bbox_inches="tight")
 
 
 #%% Plot in the contour of the irreducible Brillouin zone
@@ -103,6 +103,6 @@ plt.xticks([0, 100, 200, 300], [r"$\Gamma$", r"$X$", r"$M$", r"$\Gamma$"])
 plt.ylabel(r"$\Omega$")
 plt.xlabel(r"$k$-space position")
 plt.ylim(0, ymax)
-plt.savefig("Notes/img/square-bcc-irreducible-c=%g-m=%g.pdf"%(cd/cs, m2/m1),
-            bbox_inches="tight")
+#plt.savefig("Notes/img/square-bcc-irreducible-c=%g-m=%g.pdf"%(cd/cs, m2/m1),
+#            bbox_inches="tight")
 plt.show()

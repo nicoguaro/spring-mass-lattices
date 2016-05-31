@@ -12,11 +12,12 @@ from numpy import sqrt, cos, sin, pi
 import scipy.linalg as LA
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
+from mayavi import mlab
 
 rcParams['font.family'] = 'serif'
 rcParams['font.size'] = 8
 
-def disp_rel(kx_vec, ky_vec):
+def disp_rel(kx_vec, ky_vec, m1=1):
     m, n = kx_vec.shape
     omega = np.zeros((4, m, n))
     for i in range(m):
@@ -44,15 +45,16 @@ def disp_rel(kx_vec, ky_vec):
 
             M = np.array([[1., 0., 0., 0],
                           [0., 1., 0., 0],
-                          [0., 0., 1., 0],
-                          [0., 0., 0., 1]])
+                          [0., 0., m1, 0],
+                          [0., 0., 0., m1]])
             vals = LA.eigvalsh(K, M)
             omega[:,i,j] = vals
 
     return omega
 
-def freqs(kx_vec, ky_vec):
-    """Analytical solution for the hexagon"""
+
+def hexagon_freqs(kx_vec, ky_vec):
+    """Analytical solution for the hexagon with a single species"""
     m, n = kx_vec.shape
     omega = np.zeros((4, m, n))
     km = 0.5*(sqrt(3)*ky_vec - kx_vec)
@@ -83,9 +85,9 @@ def freqs(kx_vec, ky_vec):
 
 
 
-
+m1 = 3
 kx_vec, ky_vec = np.mgrid[-np.pi: np.pi:201j, -np.pi: np.pi: 201j]
-omega = disp_rel(kx_vec, ky_vec)
+omega = disp_rel(kx_vec, ky_vec, m1=m1)
 omega = np.abs(omega)
 omega_low = np.sqrt(omega[0,:,:] + omega[1,:,:])
 omega_high = np.sqrt(omega[2,:,:] + omega[3,:,:])
@@ -99,7 +101,7 @@ plt.contour(kx_vec/pi, ky_vec/pi, omega_low, colors='k')
 plt.axis('image')
 plt.xlabel(r"$k_x a/\pi$")
 plt.ylabel(r"$k_y a/\pi$")
-plt.savefig("Notes/img/hexagon-disp1.pdf",
+plt.savefig("Notes/img/hexagon-disp1-m1=%g.pdf"%m1,
             bbox_inches="tight")
 plt.figure(figsize=(3, 3))
 plt.contourf(kx_vec/pi, ky_vec/pi, omega_high, cmap='hot')
@@ -108,8 +110,11 @@ plt.contour(kx_vec/pi, ky_vec/pi, omega_high, colors='k')
 plt.axis('image')
 plt.xlabel(r"$k_x a/\pi$")
 plt.ylabel(r"$k_y a/\pi$")
-plt.savefig("Notes/img/hexagon-disp2.pdf",
+plt.savefig("Notes/img/hexagon-disp2-m1=%g.pdf"%m1,
             bbox_inches="tight")
+mlab.mesh(kx_vec, ky_vec, omega_low, colormap='hot')
+mlab.mesh(kx_vec, ky_vec, omega_high, colormap='hot')
+
 
 #%% Plot in the contour of the irreducible Brillouin zone
 plt.figure(figsize=(4, 2.2))
@@ -128,12 +133,12 @@ kx_vec = np.zeros((150, 1))
 kx_vec[0:50,0] = kx1
 kx_vec[50:100,0] = kx2
 kx_vec[100:150,0] = kx3
-omega = disp_rel(kx_vec, ky_vec)
+omega = disp_rel(kx_vec, ky_vec, m1=m1)
 xaxis = np.linspace(0, 150, 150)
 omega_low = np.sqrt(omega[0,:,:] + omega[1,:,:])
 omega_high = np.sqrt(omega[2,:,:] + omega[3,:,:])
 # Vertical lines
-ymax = 5
+ymax = 10
 plt.plot([0,0], [0,ymax], 'gray')
 plt.plot([50,50], [0,ymax], 'gray')
 plt.plot([100,100], [0,ymax], 'gray')
@@ -144,15 +149,11 @@ plt.xticks([0, 50, 100, 150], [r"$\Gamma$", r"$M$", r"$K$", r"$\Gamma$"])
 plt.xlim(0, 150)
 plt.ylabel(r"$\Omega$")
 plt.xlabel(r"$k$-space position")
-plt.savefig("Notes/img/hexagon-irreducible.pdf", bbox_inches="tight")
+plt.savefig("Notes/img/hexagon-irreducible-m1=%g.pdf"%m1, bbox_inches="tight")
+
+
 plt.show()
-
-
-omega2 = freqs(kx_vec, ky_vec)
-omega2 = np.abs(omega2)
-from mayavi import mlab
-mlab.mesh(kx_vec, ky_vec, np.sqrt(omega2[0,:,:] + omega2[1,:,:]), colormap='hot')
-mlab.mesh(kx_vec, ky_vec, np.sqrt(omega2[2,:,:] + omega2[3,:,:]), colormap='hot')
-#mlab.axes()
 mlab.show()
+
+
 

@@ -1047,5 +1047,97 @@ Figure \ref{fig:hexagon-disp} shows the dispersion modes for ratios $m_2/m_1=1$ 
   \caption{Dispersion curves over the irreducible Brillouin zone.}\label{fig:hexagon-irreducible}
 \end{figure}
 
+\section{Hexagonal Lattice: 2 species}
+n this case we have an hexagonal cell with springs with constant $c$ in the sides (see Figure \ref{fig:hexagon-two}). 
+\begin{figure}[h]
+\centering
+\includegraphics[height=5cm]{img/spring-hex-two_species.pdf} 
+\caption{Unit cell for a two dimensional hexagonal lattice with two species in the corners.}\label{fig:hexagon-two}
+\end{figure}
+The system of equations to solve is the same that the one for the hexagonal lattice with a single species. The mass matrix is different
+\[\mathbb{M} = \frac{m}{3}\begin{bmatrix}
+m_1\mathbb{I}_{2} & 0 & 0 & 0 & 0 & 0 \\ 
+0 & m_2\mathbb{I}_{2} & 0 & 0 & 0 & 0 \\ 
+0 & 0 & m_1\mathbb{I}_{2} & 0 & 0 & 0 \\ 
+0 & 0 & 0 & m_2\mathbb{I}_{2} & 0 & 0 \\ 
+0 & 0 & 0 & 0 & m_1\mathbb{I}_{2} & 0 \\ 
+0 & 0 & 0 & 0 & 0 & m_2\mathbb{I}_{2}
+\end{bmatrix}  \enspace .  \]
+
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=3in]{img/{hexagon-disp1-m1=0.1}.pdf}
+                \caption{$m_2/m_1=0.1$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=3in]{img/{hexagon-disp1-m1=0.5}.pdf}
+                \caption{$m_2/m_1=0.5$.}
+        \end{subfigure}\\
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=3in]{img/{hexagon-disp1-m1=2}.pdf}
+                \caption{$m_2/m_1=2$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=3in]{img/{hexagon-disp1-m1=10}.pdf}
+                \caption{$m_2/m_1=10$.}
+        \end{subfigure}
+        \caption{First branch of the dispersion curves for the hexagon with two species.}\label{fig:hexagonal-disp1-two}
+\end{figure}
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=3in]{img/{hexagon-disp2-m1=0.1}.pdf}
+                \caption{$m_2/m_1=0.1$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=3in]{img/{hexagon-disp2-m1=0.5}.pdf}
+                \caption{$m_2/m_1=0.5$.}
+        \end{subfigure}\\
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=3in]{img/{hexagon-disp2-m1=2}.pdf}
+                \caption{$m_2/m_1=2$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=3in]{img/{hexagon-disp2-m1=10}.pdf}
+                \caption{$m_2/m_1=10$.}
+        \end{subfigure}
+        \caption{First branch of the dispersion curves for the hexagon with two species.}\label{fig:hexagonal-disp1-two}
+\end{figure}
+
+Figure \ref{fig:hexagon-irreducible-two} show the dispersion curves over the irreducible Brillouin zone of the two species hexagon.
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=3in]{img/{hexagon-irreducible-m1=0.1}.pdf}
+                \caption{$m_2/m_1=0.1$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=3in]{img/{hexagon-irreducible-m1=0.5}.pdf}
+                \caption{$m_2/m_1=0.5$.}
+        \end{subfigure}\\
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=3in]{img/{hexagon-irreducible-m1=2}.pdf}
+                \caption{$m_2/m_1=2$.}
+        \end{subfigure}\,
+%
+        \begin{subfigure}[b]{0.49\textwidth}
+                \includegraphics[width=3in]{img/{hexagon-irreducible-m1=10}.pdf}
+                \caption{$m_2/m_1=10$.}
+        \end{subfigure}
+        \caption{Dispersion curves over the irreducible Brillouin zone.}\label{fig:hexagonal-irreducible-two}
+\end{figure}
+
+
 \end{document}
 

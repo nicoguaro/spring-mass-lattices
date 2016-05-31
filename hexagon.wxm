@@ -28,7 +28,11 @@ The kinetic energy has the form
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-T(i):=1/6*m*(u[i]**2 + v[i]**2);
+m:[m1, m2, m1, m2, m1, m2];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+T(i):=1/6*m[i]*(u[i]**2 + v[i]**2);
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
@@ -181,7 +185,7 @@ We don't need c/m since they can be a factor to divide the eigenvalues
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-Keff:invert(M3/omega^2).(K4)/c*m,expand;
+Keff:invert(M3/omega^2).(K4)/c*m1,expand;
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: comment start ]
@@ -236,13 +240,13 @@ w_hi: sqrt(wlin3 + wlin4);
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-plot3d(subst([a=1,c=1,m=1],w_low), [kx,-%pi,%pi], [ky,-%pi,%pi],[legend,false],
+plot3d(subst([a=1,c=1,m1=1, m2=2],w_low), [kx,-%pi,%pi], [ky,-%pi,%pi],[legend,false],
        [gnuplot_preamble, "set cntrparam levels 10"],
        [grid,51,51]);
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-plot3d(subst([a=1,c=1,m=1],w_hi), [kx,-%pi,%pi], [ky,-%pi,%pi],[legend,false],
+plot3d(subst([a=1,c=1,m1=1, m2=2],w_hi), [kx,-%pi,%pi], [ky,-%pi,%pi],[legend,false],
        [gnuplot_preamble, "set cntrparam levels 10"],
        [grid,51,51]);
 /* [wxMaxima: input   end   ] */
@@ -252,14 +256,14 @@ plot3d(subst([a=1,c=1,m=1],w_hi), [kx,-%pi,%pi], [ky,-%pi,%pi],[legend,false],
    [wxMaxima: comment end   ] */
 
 /* [wxMaxima: input   start ] */
-plot3d(subst([a=1,c=1,m=1],sqrt(evals[1] + evals[3])), [kx,-%pi,%pi],
+plot3d(subst([a=1,c=1,m1=1, m2=2],sqrt(evals[1] + evals[3])), [kx,-%pi,%pi],
        [ky,-%pi,%pi],[legend,false],
        [gnuplot_preamble, "set cntrparam levels 10"],
        [grid,51,51]);
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-plot3d(subst([a=1,c=1,m=1],sqrt(evals[2] + evals[4])), [kx,-%pi,%pi],
+plot3d(subst([a=1,c=1,m1=1, m2=2],sqrt(evals[2] + evals[4])), [kx,-%pi,%pi],
        [ky,-%pi,%pi],[legend,false],
        [gnuplot_preamble, "set cntrparam levels 10"],
        [grid,51,51]);
