@@ -668,18 +668,16 @@ Figure \ref{fig:square-disp} shows the dispersion relation for this problem.
 \begin{figure}[h]
 \centering
 \includegraphics[width=4in]{img/square-disp.pdf} 
-\caption{Dispersion relations--shown as isofrequency contours.}\label{fig:square-disp}
+\caption{Dispersion relations--shown as isofrequency contours for the 2D square lattice.}\label{fig:square-disp}
 \end{figure}
 
 It is customary to plot the dispersion relations over the irreducible Brillouin zone, this is depicted in Figure \ref{fig:square-disp-irreducible} for the square lattice.
 \begin{figure}[h]
 \centering
 \includegraphics[width=4in]{img/square-disp-irreducible.pdf} 
-\caption{Dispersion relations over the irreducible Brillouin zone}
+\caption{Dispersion relations over the irreducible Brillouin zone for the 2D square lattice.}
 \label{fig:square-disp-irreducible}
 \end{figure}
-
-
 
 
 \section{2D rectangular lattice with diagonal springs}
@@ -757,7 +755,7 @@ We recover the square lattice (without diagonals) making $c_d=0$. The dispersion
                 \includegraphics[width=\textwidth]{img/{square-diag-cd=10}.pdf}
                 \caption{$c_d/c = 10$ and $a=b$.}
         \end{subfigure}
-        \caption{Dispersion curves for different values of spring ratios $c_d/c$.}\label{fig:square-diag-disp}
+        \caption{Dispersion curves for different values of spring ratios $c_d/c$ for the 2D rectangular lattice with diagonal springs.}\label{fig:square-diag-disp}
 \end{figure}
 
 
@@ -783,8 +781,7 @@ We recover the square lattice (without diagonals) making $c_d=0$. The dispersion
                 \includegraphics[width=\textwidth]{img/{square-diag-irreducible-cd=10}.pdf}
                 \caption{$c_d/c = 10$ and $a=b$.}
         \end{subfigure}
-        \caption{Dispersion curves for different values of spring ratios $c_d/c$.}
-        \label{fig:square-diag-disp-irreducible}
+        \caption{Dispersion curves for different values of spring ratios $c_d/c$ for the 2D rectangular lattice with diagonal springs.}\label{fig:square-diag-disp-irreducible}
 \end{figure}
 
 \section{2D square lattice with body mass and diagonal springs}
@@ -823,17 +820,18 @@ v_5
 \end{equation}
 with
 \[\mathbb{K} =\begin{bmatrix}
--{c}_{s}-{c}_{d} & 0 & {c}_{s} & 0 & 0 & 0 & 0 & 0 & {c}_{d} & 0\cr
- 0 & -{c}_{s}-{c}_{d} & 0 & 0 & 0 & 0 & 0 & {c}_{s} & 0 & {c}_{d}\cr
- {c}_{s} & 0 & -{c}_{s}-{c}_{d} & 0 & 0 & 0 & 0 & 0 & {c}_{d} & 0\cr
- 0 & 0 & 0 & -{c}_{s}-{c}_{d} & 0 & {c}_{s} & 0 & 0 & 0 & {c}_{d}\cr
- 0 & 0 & 0 & 0 & -{c}_{s}-{c}_{d} & 0 & {c}_{s} & 0 & {c}_{d} & 0\cr
- 0 & 0 & 0 & {c}_{s} & 0 & -{c}_{s}-{c}_{d} & 0 & 0 & 0 & {c}_{d}\cr
- 0 & 0 & 0 & 0 & {c}_{s} & 0 & -{c}_{s}-{c}_{d} & 0 & {c}_{d} & 0\cr
- 0 & {c}_{s} & 0 & 0 & 0 & 0 & 0 & -{c}_{s}-{c}_{d} & 0 & {c}_{d}\cr
- {c}_{d} & 0 & {c}_{d} & 0 & {c}_{d} & 0 & {c}_{d} & 0 & -4\,{c}_{d} & 0\cr
- 0 & {c}_{d} & 0 & {c}_{d} & 0 & {c}_{d} & 0 & {c}_{d} & 0 & -4\,{c}_{d}\end{bmatrix},\]
-and
+-c' & 0 & {c}_{s} & 0 & 0 & 0 & 0 & 0 & {c}_{d} & 0\\
+ 0 & -c' & 0 & 0 & 0 & 0 & 0 & {c}_{s} & 0 & {c}_{d}\\
+ {c}_{s} & 0 & -c' & 0 & 0 & 0 & 0 & 0 & {c}_{d} & 0\\
+ 0 & 0 & 0 & -c' & 0 & {c}_{s} & 0 & 0 & 0 & {c}_{d}\\
+ 0 & 0 & 0 & 0 & -c' & 0 & {c}_{s} & 0 & {c}_{d} & 0\\
+ 0 & 0 & 0 & {c}_{s} & 0 & -c' & 0 & 0 & 0 & {c}_{d}\\
+ 0 & 0 & 0 & 0 & {c}_{s} & 0 & -c' & 0 & {c}_{d} & 0\\
+ 0 & {c}_{s} & 0 & 0 & 0 & 0 & 0 & -c' & 0 & {c}_{d}\\
+ {c}_{d} & 0 & {c}_{d} & 0 & {c}_{d} & 0 & {c}_{d} & 0 & -4\,{c}_{d} & 0\\
+ 0 & {c}_{d} & 0 & {c}_{d} & 0 & {c}_{d} & 0 & {c}_{d} & 0 & -4\,{c}_{d}
+ \end{bmatrix},\]
+\(c' = {c}_{s}+{c}_{d}\), and
 \[\mathbb{M} = \begin{bmatrix}
 \frac{m_1}{4}\mathbb{I}_6 & 0 \\ 
 0 & m_2\mathbb{I}_2
@@ -874,8 +872,9 @@ Figure \ref{fig:square-bcc-disp} shows the dispersion modes for ratios $m_2/m_1=
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=\textwidth]{img/square-bcc-disp2-c=1-m=1.pdf}\caption{Second branch.}
          \end{subfigure}
- \caption{$c_d/c = 1$, $m_1/m_2=1$ and $a=b$.}\label{fig:square-bcc-disp}
+ \caption{Dispersion relations for the square lattice with body mass and diagonal springs. The parameters are $c_d/c = 1$, $m_1/m_2=1$ and $a=b$.}\label{fig:square-bcc-disp}
 \end{figure}
+
 Figure \ref{fig:square-bcc-disp1} shows the first branch of the dispersion curves for different ratios $m_2/m_1$ and $c_d/c_s$.
 \begin{figure}[h]
         \centering
@@ -898,7 +897,7 @@ Figure \ref{fig:square-bcc-disp1} shows the first branch of the dispersion curve
                 \includegraphics[width=\textwidth]{img/{square-bcc-disp1-c=1-m=10}.pdf}
                 \caption{$c_d/c = 1$, $m_2/m_1=10$ and $a=b$.}
         \end{subfigure}
-        \caption{First branch of the dispersion curves.}\label{fig:square-bcc-disp1}
+        \caption{First branch of the dispersion curves for  different ratios $m_2/m_1$ and $c_d/c_s$ for the 2D square lattice with centered mass and digonal springs.}\label{fig:square-bcc-disp1}
 \end{figure}
 
 Figure \ref{fig:square-bcc-disp2} shows the second branch of the dispersion curves for different ratios $m_2/m_1$ and $c_d/c_s$.
@@ -923,7 +922,7 @@ Figure \ref{fig:square-bcc-disp2} shows the second branch of the dispersion curv
                 \includegraphics[width=\textwidth]{img/{square-bcc-disp2-c=1-m=10}.pdf}
                 \caption{$c_d/c = 1$, $m_2/m_1=10$ and $a=b$.}
         \end{subfigure}
-        \caption{Second branch of the dispersion curves.}\label{fig:square-bcc-disp2}
+        \caption{Second branch of the dispersion curves for  different ratios $m_2/m_1$ and $c_d/c_s$ for the 2D square lattice with centered mass and digonal springs.}\label{fig:square-bcc-disp2}
 \end{figure}
 
 
@@ -948,7 +947,7 @@ Figure \ref{fig:square-bcc-disp2} shows the second branch of the dispersion curv
                 \includegraphics[width=3in]{img/{square-bcc-irreducible-c=1-m=10}.pdf}
                 \caption{$c_d/c = 1$, $m_2/m_1=10$ and $a=b$.}
         \end{subfigure}
-        \caption{Dispersion curves over the irreducible Brillouin zone.}\label{fig:square-bcc-disp-irreducible}
+        \caption{Dispersion curves over the irreducible Brillouin zone for  different ratios $m_2/m_1$ and $c_d/c_s$ for the 2D square lattice with centered mass and digonal springs.}\label{fig:square-bcc-disp-irreducible}
 \end{figure}
 
 
@@ -1048,12 +1047,13 @@ Figure \ref{fig:hexagon-disp} shows the dispersion modes for ratios $m_2/m_1=1$ 
 \end{figure}
 
 \section{Hexagonal Lattice: 2 species}
-n this case we have an hexagonal cell with springs with constant $c$ in the sides (see Figure \ref{fig:hexagon-two}). 
+In this case we have an hexagonal cell with springs with constant $c$ in the sides (see Figure \ref{fig:hexagon-two}). 
 \begin{figure}[h]
 \centering
 \includegraphics[height=5cm]{img/spring-hex-two_species.pdf} 
 \caption{Unit cell for a two dimensional hexagonal lattice with two species in the corners.}\label{fig:hexagon-two}
 \end{figure}
+
 The system of equations to solve is the same that the one for the hexagonal lattice with a single species. The mass matrix is different
 \[\mathbb{M} = \frac{m}{3}\begin{bmatrix}
 m_1\mathbb{I}_{2} & 0 & 0 & 0 & 0 & 0 \\ 
@@ -1062,7 +1062,7 @@ m_1\mathbb{I}_{2} & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & m_2\mathbb{I}_{2} & 0 & 0 \\ 
 0 & 0 & 0 & 0 & m_1\mathbb{I}_{2} & 0 \\ 
 0 & 0 & 0 & 0 & 0 & m_2\mathbb{I}_{2}
-\end{bmatrix}  \enspace .  \]
+\end{bmatrix}\enspace .  \]
 
 
 \begin{figure}[h]
@@ -1110,10 +1110,10 @@ m_1\mathbb{I}_{2} & 0 & 0 & 0 & 0 & 0 \\
                 \includegraphics[width=3in]{img/{hexagon-disp2-m1=10}.pdf}
                 \caption{$m_2/m_1=10$.}
         \end{subfigure}
-        \caption{First branch of the dispersion curves for the hexagon with two species.}\label{fig:hexagonal-disp1-two}
+        \caption{Second branch of the dispersion curves for the hexagon with two species.}\label{fig:hexagonal-disp2-two}
 \end{figure}
 
-Figure \ref{fig:hexagon-irreducible-two} show the dispersion curves over the irreducible Brillouin zone of the two species hexagon.
+Figure \ref{fig:hexagonal-irreducible-two} show the dispersion curves over the irreducible Brillouin zone of the two species hexagon.
 \begin{figure}[h]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
@@ -1135,7 +1135,7 @@ Figure \ref{fig:hexagon-irreducible-two} show the dispersion curves over the irr
                 \includegraphics[width=3in]{img/{hexagon-irreducible-m1=10}.pdf}
                 \caption{$m_2/m_1=10$.}
         \end{subfigure}
-        \caption{Dispersion curves over the irreducible Brillouin zone.}\label{fig:hexagonal-irreducible-two}
+        \caption{Dispersion curves over the irreducible Brillouin zone for the hexagonal lattice with two species.}\label{fig:hexagonal-irreducible-two}
 \end{figure}
 
 
