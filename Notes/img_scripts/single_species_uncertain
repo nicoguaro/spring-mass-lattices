@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Plot dispersion curves for a single-species spring-mass lattice
+considering uncertainty in the spacing between masses.
+
+@author: Nicolas Guarin-Zapata
+"""
+from __future__ import division, print_function
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.rcParams["mathtext.fontset"] =  "cm"
+
+
+def E_Omega(k, sigma):
+    return 2*np.sin(0.5*k) - 0.25*(k*sigma)**2*np.sin(0.5*k)
+
+
+def Var_Omega(k, sigma):
+    return (k*sigma)**2*np.cos(0.5*k)**2
+
+
+#%% Single plot
+npts = 100
+k = np.linspace(0, np.pi, npts)
+plt.figure(figsize=(6, 3))
+for sigma in np.linspace(0, 0.4, 5):
+    Omega  = E_Omega(k, sigma)
+    Var = Var_Omega(k, sigma)
+    plt.subplot(1, 2, 1)
+    plt.plot(k/np.pi, Omega, label=r"$\sigma_a/\bar a = {:.1f}$".format(sigma))
+    plt.xlabel(r"$k\bar{a}/\pi$")
+    plt.ylabel(r"$\mathrm{E}[\Omega]$")
+    plt.xticks(np.linspace(0, 1, 5))
+    plt.yticks(np.linspace(0, 2, 5))
+    plt.subplot(1, 2, 2)
+    plt.plot(k/np.pi, Var)
+    plt.xlabel(r"$k\bar{a}/\pi$")
+    plt.ylabel(r"$\mathrm{Var}[\Omega]$")
+    plt.xticks(np.linspace(0, 1, 5))
+    plt.yticks(np.linspace(0, 0.2, 5))
+
+plt.subplot(1, 2, 1)
+plt.tight_layout()
+plt.legend()
+plt.savefig("../img/single_species_uncertain.pdf", bbox_inches="tight")
+
+
+#%% Several plot
+plt.figure(figsize=(6, 3))
+for cont, sigma in enumerate(np.linspace(0, 0.5, 6)):
+    Omega  = E_Omega(k, sigma)
+    Var = Var_Omega(k, sigma)
+    std = np.sqrt(Var)
+    plt.subplot(2, 3, cont + 1)
+    plt.fill_between(k/np.pi, Omega - std, y2=Omega + std, alpha=0.4)
+    plt.plot(k/np.pi, Omega)
+    plt.title(r"$\sigma_a = {:.2f}$".format(sigma), fontsize=10)
+    if cont >=3:
+        plt.xlabel(r"$k\bar{a}/\pi$")
+    else:
+        plt.xticks([])
+    if cont%3 == 0:
+        plt.ylabel(r"$\bar\Omega \pm \sigma_\Omega$")
+    else:
+        plt.yticks([])
+
+plt.savefig("../img/single_species_uncert_multiple.pdf",
+            bbox_inches="tight")
+plt.show()

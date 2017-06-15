@@ -6,6 +6,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{hyperref}
+\usepackage{float}
 
 %% Packages setup
 \geometry{
@@ -160,12 +161,12 @@ and the group speed
 
 
 \subsection{Finite case}
-\begin{figure}[h]
+In practice, we cannot have infinite (periodic) repetition of unit cells, and, at some point, we need to truncate them to make them finite (Figure \ref{fig:spring-mass-finite}). When the number of unit cells increase, the behavior should get closer to the infinite case, and the presence of bandgaps could be inferred from the analysis of the response in frequency.
+\begin{figure}[H]
 \centering
 \includegraphics[width=4in]{img/spring-mass-finite.pdf} 
 \caption{Finite simple mass-spring lattice.}\label{fig:spring-mass-finite}
 \end{figure}
-In practice, we cannot have infinite (periodic) repetition of unit cells, and, at some point, we need to truncate them to make them finite (Figure \ref{fig:spring-mass-finite}). When the number of unit cells increase, the behavior should get closer to the infinite case, and the presence of bandgaps could be inferred from the analysis of the response in frequency.
 
 If we start from a single unit cell the equations of motion for harmonic force of frequency $\omega$ are given by
 \begin{align*}
@@ -327,7 +328,8 @@ At $k_{max}=\pm\pi/a$ the roots are
 \[\omega^2 = 2c/m_1,\quad \omega^2 = 2c/m_2 \enspace .\]
 
 \subsection{Finite case}
-\begin{figure}[h]
+Let's consider now the finite case, depicted in Figure \ref{fig:diatomic-finite}.
+\begin{figure}[H]
 \centering
 \includegraphics[width=4in]{img/diatomic-finite.pdf} 
 \caption{Finite \emph{lattice} made with spring and two species of masses.}
@@ -471,8 +473,8 @@ with
 \end{bmatrix} \]
 
 
-One more time, the matrix present a structure and it might be  possible that the system has a closed solution. Here, we solved the system numerically and plotted the ratio $u_N/\hat{f}_0$ for different $N$ values and a mass ratio $\mu=m_2/m_1=2$ (Figure \ref{fig:diatomic-finite}).
-\begin{figure}[h]
+One more time, the matrix present a structure and it might be  possible that the system has a closed solution. Here, we solved the system numerically and plotted the ratio $u_N/\hat{f}_0$ for different $N$ values and a mass ratio $\mu=m_2/m_1=2$ (Figure \ref{fig:diatomic-finite-disp}).
+\begin{figure}[H]
 \centering
 \includegraphics[height=8cm]{img/diatomic_finite.pdf} 
 \caption{Frequency response for a finite mass-spring lattice for unit cell composed of two different masses.}
@@ -582,7 +584,7 @@ with
  \end{bmatrix}\]
  
 Figure \ref{fig:three-finite} presents the frequency response for this case (computed numerically) for different mass ratios $\mu_1$ and $\mu_2$.
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=3in]{img/{three_finite-m1=0.5-m2=3}.pdf}
@@ -610,7 +612,7 @@ The bandgap regions and cut frequencies are (essentially) the same as those pres
 
 \section{2D square lattice}
 For the simple cases shown before is easy to formulate the complete balance of forces taking into account the first neighbours. In general is easier to take the unit cell for the lattice and find the resulting system through row and column operations, just as exemplified before. 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[height=5cm]{img/spring-square.pdf} 
 \caption{Unit cell for a two dimensional square lattice with a unique species.}
@@ -665,14 +667,14 @@ Or, equivalently
 \omega_x^2 = \frac{8c}{m}\left( \sin \frac{1}{2}k_x a\right)^2,\qquad \omega_y^2 = \frac{8c}{m}\left( \sin \frac{1}{2}k_y b \right)^2 \enspace .
 \end{equation}
 Figure \ref{fig:square-disp} shows the dispersion relation for this problem.
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=4in]{img/square-disp.pdf} 
 \caption{Dispersion relations--shown as isofrequency contours for the 2D square lattice.}\label{fig:square-disp}
 \end{figure}
 
 It is customary to plot the dispersion relations over the irreducible Brillouin zone, this is depicted in Figure \ref{fig:square-disp-irreducible} for the square lattice.
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=4in]{img/square-disp-irreducible.pdf} 
 \caption{Dispersion relations over the irreducible Brillouin zone for the 2D square lattice.}
@@ -682,7 +684,7 @@ It is customary to plot the dispersion relations over the irreducible Brillouin 
 
 \section{2D rectangular lattice with diagonal springs}
 In this case we have a rectangular cell with springs with constant $c$ in the sides. We added diagonal springs with constants $c_d$ (see Figure \ref{fig:square-diag}). It should be noted that the value $c_d$ is the \emph{effective} spring in the $x$ and $y$ directions --they are the same for a square lattice, in the case of $a\neq b$ the constants should vary.
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[height=5cm]{img/spring-square-diag.pdf} 
 \caption{Unit cell for a two dimensional square lattice with a unique species and diagonal springs.}\label{fig:square-diag}
@@ -734,7 +736,7 @@ equivalently (after some manipulations)
 \omega_2^2 &= \frac{8c_2}{m} \sin^2 \left(\frac{1}{2}k_y b\right)  + \frac{4c_d}{m} \left[\sin^2 \frac{1}{2}\left(k_x a + k_y b\right) + \sin^2 \frac{1}{2}\left(k_x a - k_y b\right)\right]  
 \end{align}
 We recover the square lattice (without diagonals) making $c_d=0$. The dispersion curves for this problem varying the ratio $c_d/c$ are shown in Figure \ref{fig:square-diag-disp}.
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=\textwidth]{img/{square-diag-cd=0.1}.pdf}
@@ -760,7 +762,7 @@ We recover the square lattice (without diagonals) making $c_d=0$. The dispersion
 
 
 
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=\textwidth]{img/{square-diag-irreducible-cd=0.1}.pdf}
@@ -786,7 +788,7 @@ We recover the square lattice (without diagonals) making $c_d=0$. The dispersion
 
 \section{2D square lattice with body mass and diagonal springs}
 In this case we have a rectangular cell with springs with constant $c$ in the sides. We added a second mass $m_2$ to the center of the cell, and diagonal springs with constant $c_d$ (see Figure \ref{fig:square-bcc}). It should be noted that the value $c_d$ is the \emph{effective} spring in the $x$ and $y$ directions --they are the same for a square lattice, in the case of $a\neq b$ the constants should vary.
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[height=5cm]{img/spring-square-bcc.pdf} 
 \caption{Unit cell for a two dimensional square lattice with a unique species in the corners and another one in the center that is linked by diagonal springs.}\label{fig:square-bcc}
@@ -863,7 +865,7 @@ the same argument holds for the other two, giving
 \[\omega_{\text{high}}^2 = \frac{2c_s \mathbf{k}^2a^2 + 2c_d\left[4m_1^2 + 4m_2^2 + \left(8 - \mathbf{k}^2 a^2\right)m_1 m_2\right] } {m_1 m_2 (m_2 + m_1)} \enspace .\]
 
 Figure \ref{fig:square-bcc-disp} shows the dispersion modes for ratios $m_2/m_1=1$ and $c_d/c_s=1$.
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=\textwidth]{img/square-bcc-disp1-c=1-m=1.pdf}\caption{First branch.}
@@ -876,7 +878,7 @@ Figure \ref{fig:square-bcc-disp} shows the dispersion modes for ratios $m_2/m_1=
 \end{figure}
 
 Figure \ref{fig:square-bcc-disp1} shows the first branch of the dispersion curves for different ratios $m_2/m_1$ and $c_d/c_s$.
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=\textwidth]{img/{square-bcc-disp1-c=0.1-m=1}.pdf}
@@ -901,7 +903,7 @@ Figure \ref{fig:square-bcc-disp1} shows the first branch of the dispersion curve
 \end{figure}
 
 Figure \ref{fig:square-bcc-disp2} shows the second branch of the dispersion curves for different ratios $m_2/m_1$ and $c_d/c_s$.
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=\textwidth]{img/{square-bcc-disp2-c=0.1-m=1}.pdf}
@@ -926,7 +928,7 @@ Figure \ref{fig:square-bcc-disp2} shows the second branch of the dispersion curv
 \end{figure}
 
 
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=3in]{img/{square-bcc-irreducible-c=0.1-m=1}.pdf}
@@ -953,7 +955,7 @@ Figure \ref{fig:square-bcc-disp2} shows the second branch of the dispersion curv
 
 \section{Hexagonal Lattice}
 In this case we have an hexagonal cell with springs with constant $c$ in the sides (see Figure \ref{fig:hexagon}). 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[height=5cm]{img/spring-hexagon.pdf} 
 \caption{Unit cell for a two dimensional hexagonal lattice with a unique species in the corners.}\label{fig:hexagon}
@@ -1028,7 +1030,7 @@ The eigenvalues for this problem are lengthy, but a second order expansion aroun
 with $\omega_0^2 = c/m$.
 
 Figure \ref{fig:hexagon-disp} shows the dispersion modes for ratios $m_2/m_1=1$ and $c_d/c_s=1$.
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=\textwidth]{img/hexagon-disp1.pdf}\caption{First branch.}
@@ -1040,7 +1042,7 @@ Figure \ref{fig:hexagon-disp} shows the dispersion modes for ratios $m_2/m_1=1$ 
  \caption{Dispersion relations for the hexagonal unit cell.}\label{fig:hexagon-disp}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=4in]{img/{hexagon-irreducible}.pdf}
   \caption{Dispersion curves over the irreducible Brillouin zone.}\label{fig:hexagon-irreducible}
@@ -1065,7 +1067,7 @@ m_1\mathbb{I}_{2} & 0 & 0 & 0 & 0 & 0 \\
 \end{bmatrix}\enspace .  \]
 
 
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=3in]{img/{hexagon-disp1-m1=0.1}.pdf}
@@ -1089,7 +1091,7 @@ m_1\mathbb{I}_{2} & 0 & 0 & 0 & 0 & 0 \\
         \caption{First branch of the dispersion curves for the hexagon with two species.}\label{fig:hexagonal-disp1-two}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=3in]{img/{hexagon-disp2-m1=0.1}.pdf}
@@ -1114,7 +1116,7 @@ m_1\mathbb{I}_{2} & 0 & 0 & 0 & 0 & 0 \\
 \end{figure}
 
 Figure \ref{fig:hexagonal-irreducible-two} show the dispersion curves over the irreducible Brillouin zone of the two species hexagon.
-\begin{figure}[h]
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.49\textwidth}
                 \includegraphics[width=3in]{img/{hexagon-irreducible-m1=0.1}.pdf}
@@ -1137,6 +1139,91 @@ Figure \ref{fig:hexagonal-irreducible-two} show the dispersion curves over the i
         \end{subfigure}
         \caption{Dispersion curves over the irreducible Brillouin zone for the hexagonal lattice with two species.}\label{fig:hexagonal-irreducible-two}
 \end{figure}
+
+\section{Uncertainty quantification}
+In this section we would like to analyze the uncertainty in the dispersion relations taken the parameters, geometric at first, of the lattices.
+
+We can approximate the moments of a function \(f\) of a random variable \(X\) using a Taylor series expansion. If we consider quadratic expansions in the standard deviation, \(\sigma_X^2\), we obtain that \cite{book:probability_models}
+\begin{align}
+\operatorname{E}[f(X)] &\approx f(\mu_X) + f''(\mu_X)\frac{\sigma_X^2}{2}\\
+\operatorname{Var}[f(X)] &\approx f'(\mu_X)^2 \sigma_X^2\, ,
+\end{align}
+where \(\operatorname{E}[]\) is the expected value, \(\operatorname{Var}[]\) the variance, \(\mu_X\) is the expected value of \(X\) and \(\sigma_X\) the standard deviation of \(X\).
+
+In the case of function of several variables we would need to performa a multivariate Taylor expansion.
+
+\subsection{Single-species lattice}
+In this case the dispersion relation reads
+\[\Omega = 2 \left| \sin\frac{1}{2}ka\right|\, ,\]
+and let's take \(a\) as a random variable, and \(\bar{a}\) as the expected value of \(a\) and \(\sigma_a\) as it's standard deviation.
+
+Then, we have
+\begin{align}
+\operatorname{E}[\Omega] &\approx 2\left|\sin\frac{1}{2}k\bar{a}\right| -
+    \frac{k^2 \sigma_a^2}{4}\left|\sin\frac{1}{2}k\bar{a}\right|\\
+\operatorname{Var}[\Omega] &\approx k^2\sigma_a^2\cos^2 \frac{1}{2} k\bar{a}
+\end{align}
+
+We can see a plot of the expected values and variances for different levels of standard deviation in Figure \ref{fig:single-species-uncertain}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6in]{img/{single_species_uncertain}.pdf}
+  \caption{Dispersion curves over the first Brillouin zone for a single-species considering that the spacing in the lattice is a random variable.}\label{fig:single-species-uncertain}
+\end{figure}
+
+In Figure \ref{fig:single-species-uncertain-multiple}
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=3in]{img/{single_species_uncert_multiple}.pdf}
+  \caption{Dispersion curves over the first Brillouin zone for a single-species considering that the spacing in the lattice is a random variable.}\label{fig:single-species-uncertain-multiple}
+\end{figure}
+
+\subsection{Two-species lattice}
+For a two-species lattices the dispersion relation is
+\[\Omega_\mp = \left[ 1 + \mu \pm \sqrt{(1 + \mu)^2 - 2\mu(1 - \cos ka)}\right]^{1/2}\, ,\]
+with
+\[\mu=\frac{m_1}{m_2},\quad \Omega^2 = \frac{\omega^2}{\omega_0^2},\quad \omega_0^2 = \frac{c}{m_1}\, .\]
+
+If we compute the expected value and variance up to second order (\(\sigma_a^2\)) terms, we obtain
+\begin{align}
+\operatorname{E}[\Omega_\pm] &\approx \Omega_\pm \pm \frac{k^2\sigma_a^2\mu^2}{4g^{1/2}\Omega_\pm}
+    \left[\frac{\sin^2 k\bar{a}}{g} - \frac{\cos k\bar{a}}{\mu} - \frac{\sin^2 k\bar{a}}{2g^{1/2}\Omega_\pm}\right]\\
+\operatorname{Var}[\Omega_\pm] &\approx \frac{k^2 \mu^2 \sigma_a^2}{4g\Omega_\pm}\sin^2 k\bar{a}\, ,
+\end{align}
+with
+\[g = (1+\mu)^2 - 2\mu( - \cos k\bar{a})\, .\]
+
+We can see a plot of the expected values and variances for different levels of standard deviation in Figure \ref{fig:two-species-uncertain}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=6in]{img/{two_species_uncertain-mu=2}.pdf}
+  \caption{Dispersion curves over the first Brillouin zone for a two-species considering that the spacing in the lattice is a random variable and the ratio of masses \(\mu=2\).}\label{fig:two-species-uncertain}
+\end{figure}
+
+In Figure \ref{fig:two-species-uncertain-multiple}
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=3in]{img/{two_species_uncert_multiple-mu=2}.pdf}
+  \caption{Dispersion curves over the first Brillouin zone for a single-species considering that the spacing in the lattice is a random variable.}\label{fig:two-species-uncertain-multiple}
+\end{figure}
+
+We want to see how much the bandgap is affected by the increase in the standard deviation of the parameter \(a\). The Figure \ref{fig:two-species-uncertain-bandgap} shows the bandgap size as a function of the normalized standard deviation \(\sigma_a/\bar{a}\). The size is defined as the separation between the maximum and minimum of the two branches considering the first standard deviation in the frequency, i.e, the separation between the branches in Figure \ref{fig:two-species-uncertain-multiple}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=2in]{img/{two_species_uncert_bandgap-mu=2}.pdf}
+  \caption{Bandgap size as a function of normalized standard deviation \(\sigma_a/\bar{a}\).}\label{fig:two-species-uncertain-bandgap}
+\end{figure}
+
+\begin{thebibliography}{9}
+
+\bibitem{book:probability_models}
+  Haym Benaroya and Seon Mi Han,
+  \textit{Probability Models in Engineering and Science},
+  Taylor \& Francis,
+  1st edition,
+  2005.
+
+\end{thebibliography}
 
 
 \end{document}
