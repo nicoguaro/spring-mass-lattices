@@ -1,4 +1,4 @@
-\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amsfonts, amssymb}
 \usepackage{graphicx}
@@ -8,14 +8,15 @@
 \usepackage{hyperref}
 \usepackage{float}
 
+
 %% Packages setup
 \geometry{
 	verbose,
 	letterpaper,
-	tmargin=3cm,
-	bmargin=3cm,
-	lmargin=3cm,
-	rmargin=3cm
+	tmargin=2 cm,
+	bmargin=3 cm,
+	lmargin=3 cm,
+	rmargin=3 cm
     }
 
 \hypersetup{
@@ -40,11 +41,18 @@
     labelsep=period
     }
 
-%%
-\author{Nicol\'as Guar\'in Zapata}
+\linespread{1.2}
+
+
+%% Title 
 \title{\textbf{Dispersion relations for spring-mass lattices}}
+\author{Nicolás Guarín-Zapata}
+
 \begin{document}
 \maketitle
+
+\abstract{This document present some results pertaining the dispersion in lattices made with springs and masses. The main idea is to study the bulk behavior of the \emph{materials} made with these lattices. We present prototypical systems in the study of phononic crystals, and its relative simplicity allow for analytical solutions in some cases. What is not commonly possible in the continuum counterpart.
+}
 
 %% 
 \section{Simple mass-spring lattice}
@@ -547,7 +555,7 @@ Figure \ref{fig:three-masses} presents some dispersion curves for different mass
 \subsection{Finite case}
 We can repeat the analysis done for one-mass and two-masses unit cells for the case of three-masses unit cell. In this case, the closed solution for one and two unit cells is not shown since the expression are large compared with the other two cases. Nevertheless, we present the equation form for the $N$ cells case
 \begin{equation}
-  \mathbb{A}\begin{Bmatrix}
+  [\mathbb{A} - 2\mathbb{I}]\begin{Bmatrix}
   u_0 \\ 
   v_0 \\ 
   w_0 \\ 
@@ -572,15 +580,15 @@ We can repeat the analysis done for one-mass and two-masses unit cells for the c
 \end{equation}
 with
 \[\mathbb{A} = \begin{bmatrix}
- -1 + \Omega^2 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
- 1 & -2 + \mu_1\Omega^2 & 1 & 0 & \cdots & 0 & 0 & 0 & 0 \\ 
- 0 & 1 & -2 + \mu_2\Omega^2 & 1 & \cdots & 0 & 0 & 0 & 0 \\ 
- 0 & 0 & 1 & -2 + \Omega^2 & \cdots & 0 & 0 & 0 & 0 \\ 
+ \Omega^2 + 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+ 1 & \mu_1\Omega^2 & 1 & 0 & \cdots & 0 & 0 & 0 & 0 \\ 
+ 0 & 1 & \mu_2\Omega^2 & 1 & \cdots & 0 & 0 & 0 & 0 \\ 
+ 0 & 0 & 1 & \Omega^2 & \cdots & 0 & 0 & 0 & 0 \\ 
  \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots \\ 
- 0 & 0 & 0 & 0 & \cdots & -2 + \Omega^2 & 1 & 0 & 0 \\ 
- 0 & 0 & 0 & 0 & \cdots & 1 & -2 + \mu_1\Omega^2 & 0 & 0 \\ 
- 0 & 0 & 0 & 0 & \cdots & 0 & 1 & -2 + \mu_2\Omega^2 & 1 \\ 
- 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 1 & -1 + \Omega^2
+ 0 & 0 & 0 & 0 & \cdots & \Omega^2 & 1 & 0 & 0 \\ 
+ 0 & 0 & 0 & 0 & \cdots & 1 & \mu_1\Omega^2 & 0 & 0 \\ 
+ 0 & 0 & 0 & 0 & \cdots & 0 & 1 & \mu_2\Omega^2 & 1 \\ 
+ 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 1 & \Omega^2 + 1
  \end{bmatrix}\]
  
 Figure \ref{fig:three-finite} presents the frequency response for this case (computed numerically) for different mass ratios $\mu_1$ and $\mu_2$.
